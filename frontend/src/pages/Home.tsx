@@ -1,29 +1,40 @@
+
 import Hero from "@/components/created/Hero";
 import HomeDonate from "@/components/created/HomeDonate";
 import { ThreeDCardDemo } from "@/components/created/HomeJoin";
+import Testimonial from "@/components/created/Testimonial";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-// import { SwipeCarousel } from "@/components/created/HomeDonate";
 
 export default function Home() {
     return (
-        <div className="grid gap-4 mb-5">
-            <div className="w-full" >
+        <div className="grid gap-4">
+            <div className="" >
                 <Hero />
             </div>
-            <div className="">
+            <div className="md:p-2">
                 <DonateSection />
             </div>
             <div className="">
                 <JoinSection />
             </div>
+            <div className="">
+                <TestimonialSection />
+            </div>
         </div>
     )
 }
 
+function TestimonialSection() {
+    return (
+        <div className="overflow-hidden">
+            <Testimonial />
+        </div>
+    )
+}
 
-function DonateSection(){
-    return(
+function DonateSection() {
+    return (
         <div className=" grid overflow-hidden max-w-full py-4 p-2 gap-2 md:gap-4">
             <div className="flex justify-around items-center">
                 <Link to="" className="">
@@ -39,8 +50,6 @@ function DonateSection(){
         </div>
     )
 }
-
-
 
 
 // import { testimonials } from "@/components/created/HomeDonate";
@@ -61,7 +70,6 @@ function JoinSection() {
                 <ThreeDCardDemo who={"doctor"} />
                 <ThreeDCardDemo who={"seeker"} />
                 <ThreeDCardDemo who={"donor"} />
-                
             </div>
         </div>
     )
