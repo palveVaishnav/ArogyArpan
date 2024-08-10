@@ -1,4 +1,4 @@
 export const PageList = [
     "Home",
-    "ABout",
+    "About",
 ]

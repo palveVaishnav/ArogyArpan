@@ -1,21 +1,20 @@
 
-import Hero from "@/components/created/Hero";
+import Hero from "@/components/created/HomeHero";
 import HomeDonate from "@/components/created/HomeDonate";
 import { ThreeDCardDemo } from "@/components/created/HomeJoin";
-import Testimonial from "@/components/created/Testimonial";
-import { Button } from "@/components/ui/button";
+import Testimonial from "@/components/created/HomeTestimonial";
 import { Link } from "react-router-dom";
 
 export default function Home() {
     return (
         <div className="grid gap-4">
-            <div className="" >
+            <div className="p-6 bg-slate-300">
                 <Hero />
             </div>
-            <div className="md:p-2">
+            <div className="">
                 <DonateSection />
             </div>
-            <div className="">
+            <div className="p-4 bg-slate-300">
                 <JoinSection />
             </div>
             <div className="">
@@ -27,22 +26,29 @@ export default function Home() {
 
 function TestimonialSection() {
     return (
-        <div className="overflow-hidden">
+        <div className=" grid overflow-hidden max-w-full py-4 gap-2 md:gap-4">
+            <div className="grid place-content-center gap-1">
+                <p className="SectionTitle">
+                    <Link to="">Testimonails</Link>
+                </p>
+                <p className="w-fit place-self-center">Stories of Hope and Trust</p>
+            </div>
+            <div className="overflow-hidden">
             <Testimonial />
         </div>
+        </div>
+        
     )
 }
 
 function DonateSection() {
     return (
         <div className=" grid overflow-hidden max-w-full py-4 p-2 gap-2 md:gap-4">
-            <div className="flex justify-around items-center">
-                <Link to="" className="">
-                    <Button variant="outline" className="text-xl">Donate Now</Button>
-                </Link>
-                <Link to="" className="">
-                    <Button>{"View All >>"}</Button>
-                </Link>
+            <div className="grid place-content-center gap-1">
+                <p className="SectionTitle">
+                    <Link to="">Donate Now</Link>
+                </p>
+                <p className="w-fit place-self-center">Help people Directly !!</p>
             </div>
             <div className="p-4">
                 <HomeDonate />
@@ -57,13 +63,11 @@ function DonateSection() {
 function JoinSection() {
     return (
         <div className=" grid overflow-hidden max-w-full py-4 p-2 gap-2 md:gap-4">
-            <div className="flex justify-around items-center">
-                <Link to="" className="">
-                    <Button variant="outline" className="text-xl">Join Now</Button>
-                </Link>
-                <Link to="" className="">
-                    <Button>{"View All >>"}</Button>
-                </Link>
+            <div className="grid place-content-center gap-1">
+                <p className="SectionTitle">
+                    <Link to="">Join ArogyArpan</Link>
+                </p>
+                <p className="w-fit place-self-center"> Let's Help Humanity </p>
             </div>
             {/* Card */}
             <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 place-content-center">

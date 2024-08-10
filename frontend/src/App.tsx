@@ -3,7 +3,7 @@ import { Routing } from './components/created/NavBar'
 
 function App() {
   return (
-    <div>
+    <div className=''>
       <Routing />
     </div>    
   )

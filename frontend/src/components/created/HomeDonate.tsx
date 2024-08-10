@@ -5,6 +5,7 @@ import {
 } from "@/components/ui/carousel"
 
 import Autoplay from "embla-carousel-autoplay"
+import { Button } from "../ui/button";
 
 
 /*
@@ -150,18 +151,18 @@ function CarouselComponent() {
     <Carousel
       plugins={[
         Autoplay({
-          delay: 3500,
+          delay: 6500,
           stopOnInteraction: false,
           stopOnMouseEnter: true,
         }),
       ]}
-      className="min-h-[70vh] md:min-h-fit hover:shadow-xl"
+      className="min-h-[70vh] md:min-h-fit grid place-content-center"
     >
       <CarouselContent>
         {DonationRequestArray.map((index) => (
           <CarouselItem key={index.id}>
             <div
-              className="grid grid-cols-1 md:grid-cols-2 rounded-xl text-left bg-slate-100 shadow-xl border border-black overflow-hidden"
+              className="grid grid-cols-1 md:grid-cols-2 rounded-xl text-left bg-slate-100 shadow-xl border border-black overflow-hidden justify-between sm:mx-10 md:mx-24 lg:mx-44 cursor-grabbing"
             >
               <div className="w-full">
                 <img
@@ -204,6 +205,10 @@ function CarouselComponent() {
                 <div className="hidden md:block">
                   <p className="font-serif">Story :</p>
                   <p className="pl-4">{index.story}</p>
+                </div>
+                <div className="flex justify-center gap-8 md:justify-around m-2 md:m-4">
+                  <Button>Donate</Button>
+                  <Button variant='outline'>{"Read More >>"}</Button>
                 </div>
               </div>
             </div>

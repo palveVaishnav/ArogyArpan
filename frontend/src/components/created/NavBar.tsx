@@ -105,7 +105,7 @@ function ToggleMenuPages() {
 function WebLogo() {
     return (
         <Link to="/">
-            <p className='font-serif text-xl'>
+            <p className='font-mono text-xl'>
                 Arogy<span className="text-orange-400">Arpan</span>
             </p>
         </Link>
