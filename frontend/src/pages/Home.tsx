@@ -41,25 +41,6 @@ function TestimonialSection() {
     )
 }
 
-function DonateSection() {
-    return (
-        <div className=" grid overflow-hidden max-w-full py-4 p-2 gap-2 md:gap-4">
-            <div className="grid place-content-center gap-1">
-                <p className="SectionTitle">
-                    <Link to="">Donate Now</Link>
-                </p>
-                <p className="w-fit place-self-center">Help people Directly !!</p>
-            </div>
-            <div className="p-4">
-                <HomeDonate />
-            </div>
-        </div>
-    )
-}
-
-
-// import { testimonials } from "@/components/created/HomeDonate";
-
 function JoinSection() {
     return (
         <div className=" grid overflow-hidden max-w-full py-4 p-2 gap-2 md:gap-4">
@@ -78,3 +59,22 @@ function JoinSection() {
         </div>
     )
 }
+
+function DonateSection() {
+    return (
+        <div className=" grid overflow-hidden max-w-full py-4 p-2 gap-2 md:gap-4">
+            <div className="grid place-content-center gap-1">
+                <p className="SectionTitle">
+                    <Link to="">Contribute Now</Link>
+                </p>
+                <p className="w-fit place-self-center">Help people Directly !!</p>
+            </div>
+            <div className="p-4">
+                <HomeDonate />
+            </div>
+        </div>
+    )
+}
+
+
+// import { testimonials } from "@/components/created/HomeDonate";

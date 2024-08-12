@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/sheet"
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 // Mode not working 
-import { ModeToggle } from "./ModeToggle";
+// import { ModeToggle } from "./ModeToggle";
 import { Toggle } from "@/components/ui/toggle"
 import { Link } from "react-router-dom";
 
@@ -28,12 +28,12 @@ import { PageList } from "@/utils/PageList";
 
 export default function NavBar() {
     return (
-        <div className='sticky w-full top-0 left-0 right-0 z-10 backdrop-blur-lg rounded-lg mb-4 border'>
-            <div className='pl-4 p-2 md:p-3 flex flex-row justify-between items-centercontent-center shadow-md min-w-full relative top-0'>
+        <div className='sticky w-full top-0 left-0 right-0 z-10 backdrop-blur-lg rounded-lg border'>
+            <div className= 'py-3 px-2 md:px-[4em] flex justify-between md:justify-evenly items-center shadow-md w-full relative top-0'>
                 <div className="block md:hidden">
                     <ToggleMenu />
                 </div>
-                <div className='flex items-center justify-start'>
+                <div className='flex items-center'>
                     <WebLogo />
                 </div>
                 <div className='md:flex gap-2 hidden'>
@@ -50,7 +50,9 @@ export default function NavBar() {
                         Contact
                     </Button>
                 </div>
-                <ModeToggle />
+                <div className="">
+                    <Button>Create a Fundraiser</Button>
+                </div>
             </div>
         </div>
 
@@ -75,7 +77,7 @@ export function ToggleMenu() {
                             Navigation Menu
                         </SheetDescription>
                     </SheetHeader>
-                    <div className="grid gap-4 py-4">
+                    <div className="grid gap-4">
                         <ToggleMenuPages />
                     </div>
                 </SheetContent>
