@@ -1,4 +1,14 @@
-# ArogyArpan : Medical - Emergency NGO .
+# ArogyArpan : Fundraiser for medical emergencies.
+<aside>
+💡 Link : [ArogyaArpan.vercel.app](https://arogyarpan.vercel.app)
+
+</aside>
+
+## The Raw Idea [ 20 July 2024 ]
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/b0e42fd4-e361-4328-9eb0-ab133f9ecd98/95ad4c22-cb49-4e03-819f-ce1a5cf0f98e/image.png)
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/b0e42fd4-e361-4328-9eb0-ab133f9ecd98/7bd4e61c-e7e8-4208-ab99-f19093a619fe/image.png)
 
 Names : 
 
@@ -6,21 +16,22 @@ Names :
 2. **VeriFund** (Verify + Fund, highlighting authenticity)
 3. ArogyArpan 
 
-Design : https://excalidraw.com/#json=1N5ns7hwVGA-rwCcIH1YL,bvadE19tFKLZwIfsZgCqlg 
-
-
 ### Project Concept: Emergency Medical Assistance Platform
 
 **Objective:**
 
 Develop a website that provides a structured, transparent, and trustworthy platform for seeking financial help in medical emergencies. This platform aims to replace the unreliable practice of forwarding WhatsApp messages with a more credible, verifiable system.
 
+## the Design
+
+https://excalidraw.com/#json=11Uxvnw1gCrMXoTM8jysh,3Fuz3npskZEj86VJ3BTlYQ
+
 ---
 
 **Key Features:**
 
 1. **Patient Profile:**
-    - Detailed bio of the person in need. [ care seeker | beneficiary | patient ] .
+    - Detailed bio of the person in need. [ care seeker | beneficiary | patient | Fundraiser ] .
     - Information about the medical condition and the nature of the emergency.
 2. **Problem Statement:**
     - Clear description of the medical issue.
@@ -90,3 +101,23 @@ Develop a website that provides a structured, transparent, and trustworthy platf
 4. **Pilot Testing:**
     - Launch a pilot version with a few cases to test the platform’s functionality and effectiveness.
     - Gather feedback and make necessary adjustments before a full-scale launch.
+
+---
+
+## Content for Web
+
+- Why to Join
+    
+    Doctors :
+    
+    Fundraiser :
+    
+    Donors : 
+    
+
+---
+
+## Millap :
+
+> On 12th August I Came across this site while looking for ngo websites .They are doing exactly what I wanted, but their idea is more refined as they are doing it for a really long time and had raised about 2000+ Cr of amount through their website for the community. I really loved there site and it also gave a lot of good ideas to improve my project. I improvised few of my components and pages like the main fundraiser page, it also reflects in the UI.
+>
