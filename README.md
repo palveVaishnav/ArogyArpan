@@ -4,13 +4,6 @@
 
 ---
 
-## The Raw Idea [20 July 2024]
-Screenshots : 
-![Idea Image 1](https://www.notion.so/ArogyArpan-Fundraiser-for-medical-emergencies-beebadf75570410d900a1cdf84bbedb0?pvs=4#623beb9202ef4d92bfac738ff381be65)
-![Idea Image 2](https://www.notion.so/ArogyArpan-Fundraiser-for-medical-emergencies-beebadf75570410d900a1cdf84bbedb0?pvs=4#94f6c9bfb03b469ea6f6d661a6cd1f7a)
-
----
-
 ### Names:
 
 1. **AidSecure**
