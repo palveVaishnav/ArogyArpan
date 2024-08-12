@@ -40,8 +40,8 @@ Design Link :  [Excalidraw](https://excalidraw.com/#json=11Uxvnw1gCrMXoTM8jysh,3
 4. **Verification Process:**
     - Verification mechanisms to ensure authenticity and prevent scams:
       - **Doctor Verification:** A system to verify the credentials of doctors involved and track their history of cases handled.
-        -Indian Medical Register : [Verify Doctor’s ID](https://www.nmc.org.in/information-desk/indian-medical-register/)
-        -Indian Medical Register : [Check Black List](https://www.nmc.org.in/information-desk/indian-medical-register/black-list-doctors/)
+        - Indian Medical Register : [Verify Doctor’s ID](https://www.nmc.org.in/information-desk/indian-medical-register/)
+        - Indian Medical Register : [Check Black List](https://www.nmc.org.in/information-desk/indian-medical-register/black-list-doctors/)
     - Future Ideas:
       - **Hospital Partnership:** Tie-ups with hospitals to validate the patient’s condition and the need for funds.
       - **Medical Student Involvement:** Allow medical students to verify cases and report on the patient’s status.
