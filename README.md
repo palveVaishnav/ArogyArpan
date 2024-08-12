@@ -1,20 +1,23 @@
-# ArogyArpan : Fundraiser for medical emergencies.
-<aside>
-💡 Link : [ArogyaArpan.vercel.app](https://arogyarpan.vercel.app)
+# ArogyArpan: Fundraiser for Medical Emergencies
 
-</aside>
+💡 **Link:** [ArogyaArpan.vercel.app](https://arogyarpan.vercel.app)
 
-## The Raw Idea [ 20 July 2024 ]
+---
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/b0e42fd4-e361-4328-9eb0-ab133f9ecd98/95ad4c22-cb49-4e03-819f-ce1a5cf0f98e/image.png)
+## The Raw Idea [20 July 2024]
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/b0e42fd4-e361-4328-9eb0-ab133f9ecd98/7bd4e61c-e7e8-4208-ab99-f19093a619fe/image.png)
+![Idea Image 1](https://prod-files-secure.s3.us-west-2.amazonaws.com/b0e42fd4-e361-4328-9eb0-ab133f9ecd98/95ad4c22-cb49-4e03-819f-ce1a5cf0f98e/image.png)
+![Idea Image 2](https://prod-files-secure.s3.us-west-2.amazonaws.com/b0e42fd4-e361-4328-9eb0-ab133f9ecd98/7bd4e61c-e7e8-4208-ab99-f19093a619fe/image.png)
 
-Names : 
+---
+
+### Names:
 
 1. **AidSecure**
 2. **VeriFund** (Verify + Fund, highlighting authenticity)
-3. ArogyArpan 
+3. **ArogyArpan**
+
+---
 
 ### Project Concept: Emergency Medical Assistance Platform
 
@@ -22,16 +25,18 @@ Names :
 
 Develop a website that provides a structured, transparent, and trustworthy platform for seeking financial help in medical emergencies. This platform aims to replace the unreliable practice of forwarding WhatsApp messages with a more credible, verifiable system.
 
-## the Design
+---
 
-https://excalidraw.com/#json=11Uxvnw1gCrMXoTM8jysh,3Fuz3npskZEj86VJ3BTlYQ
+## The Design
+
+[Design Link](https://excalidraw.com/#json=11Uxvnw1gCrMXoTM8jysh,3Fuz3npskZEj86VJ3BTlYQ)
 
 ---
 
-**Key Features:**
+### Key Features:
 
 1. **Patient Profile:**
-    - Detailed bio of the person in need. [ care seeker | beneficiary | patient | Fundraiser ] .
+    - Detailed bio of the person in need (care seeker, beneficiary, patient, fundraiser).
     - Information about the medical condition and the nature of the emergency.
 2. **Problem Statement:**
     - Clear description of the medical issue.
@@ -41,25 +46,12 @@ https://excalidraw.com/#json=11Uxvnw1gCrMXoTM8jysh,3Fuz3npskZEj86VJ3BTlYQ
     - Display of the amount needed, the amount already raised, and the remaining amount to be collected.
 4. **Verification Process:**
     - Verification mechanisms to ensure authenticity and prevent scams:
-        
-        <aside>
-        💡 **Doctor Verification:** A system to verify the credentials of doctors involved and track their history of cases handled. ( He/She should verify the situation ).
-        
-        </aside>
-        
-        <aside>
-        💡 Verify Doctor’s Id : https://www.nmc.org.in/information-desk/indian-medical-register/
-        
-        </aside>
-        
-        <aside>
-        💡 Check Black List : https://www.nmc.org.in/information-desk/indian-medical-register/black-list-doctors/
-        
-        </aside>
-        
-        - Future Ideas
-            - **Hospital Partnership:** Tie-ups with hospitals to validate the patient’s condition and the need for funds.
-            - **Medical Student Involvement:** Allow medical students to verify cases and report on the patient’s status.
+      - **Doctor Verification:** A system to verify the credentials of doctors involved and track their history of cases handled.
+        - [Verify Doctor’s ID](https://www.nmc.org.in/information-desk/indian-medical-register/)
+        - [Check Black List](https://www.nmc.org.in/information-desk/indian-medical-register/black-list-doctors/)
+    - Future Ideas:
+      - **Hospital Partnership:** Tie-ups with hospitals to validate the patient’s condition and the need for funds.
+      - **Medical Student Involvement:** Allow medical students to verify cases and report on the patient’s status.
 5. **Accountability and Transparency:**
     - History of the doctor’s involvement in cases, ensuring transparency.
     - Detailed reporting on how the funds are being used.
@@ -68,7 +60,7 @@ https://excalidraw.com/#json=11Uxvnw1gCrMXoTM8jysh,3Fuz3npskZEj86VJ3BTlYQ
 
 ---
 
-**Challenges:**
+### Challenges:
 
 1. **Authenticity Verification:**
     - Developing a robust system to ensure that the cases listed are genuine.
@@ -79,7 +71,7 @@ https://excalidraw.com/#json=11Uxvnw1gCrMXoTM8jysh,3Fuz3npskZEj86VJ3BTlYQ
 
 ---
 
-**Additional Considerations:**
+### Additional Considerations:
 
 - **Scalability:** How to scale the verification process as the platform grows.
 - **Fraud Prevention:** Implementing measures to prevent fraudulent activities by any parties involved, including doctors.
@@ -87,7 +79,7 @@ https://excalidraw.com/#json=11Uxvnw1gCrMXoTM8jysh,3Fuz3npskZEj86VJ3BTlYQ
 
 ---
 
-**Next Steps:**
+### Next Steps:
 
 1. **Research & Planning:**
     - Conduct research on existing platforms and verification methods.
@@ -106,18 +98,13 @@ https://excalidraw.com/#json=11Uxvnw1gCrMXoTM8jysh,3Fuz3npskZEj86VJ3BTlYQ
 
 ## Content for Web
 
-- Why to Join
-    
-    Doctors :
-    
-    Fundraiser :
-    
-    Donors : 
-    
+- **Why to Join:**
+  - **Doctors:**
+  - **Fundraiser:**
+  - **Donors:**
 
 ---
 
-## Millap :
+### Inspiration from Milaap:
 
-> On 12th August I Came across this site while looking for ngo websites .They are doing exactly what I wanted, but their idea is more refined as they are doing it for a really long time and had raised about 2000+ Cr of amount through their website for the community. I really loved there site and it also gave a lot of good ideas to improve my project. I improvised few of my components and pages like the main fundraiser page, it also reflects in the UI.
->
+> On 12th August, I came across this site while looking for NGO websites. They are doing exactly what I wanted, but their idea is more refined as they have been doing it for a long time and have raised about 2000+ Cr of amount through their website for the community. I really loved their site, and it also gave me a lot of good ideas to improve my project. I improvised a few of my components and pages, like the main fundraiser page, and it also reflects in the UI.
