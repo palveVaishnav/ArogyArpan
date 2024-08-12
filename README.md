@@ -5,9 +5,9 @@
 ---
 
 ## The Raw Idea [20 July 2024]
-
-![Idea Image 1](https://prod-files-secure.s3.us-west-2.amazonaws.com/b0e42fd4-e361-4328-9eb0-ab133f9ecd98/95ad4c22-cb49-4e03-819f-ce1a5cf0f98e/image.png)
-![Idea Image 2](https://prod-files-secure.s3.us-west-2.amazonaws.com/b0e42fd4-e361-4328-9eb0-ab133f9ecd98/7bd4e61c-e7e8-4208-ab99-f19093a619fe/image.png)
+Screenshots : 
+![Idea Image 1](https://www.notion.so/ArogyArpan-Fundraiser-for-medical-emergencies-beebadf75570410d900a1cdf84bbedb0?pvs=4#623beb9202ef4d92bfac738ff381be65)
+![Idea Image 2](https://www.notion.so/ArogyArpan-Fundraiser-for-medical-emergencies-beebadf75570410d900a1cdf84bbedb0?pvs=4#94f6c9bfb03b469ea6f6d661a6cd1f7a)
 
 ---
 
@@ -29,7 +29,7 @@ Develop a website that provides a structured, transparent, and trustworthy platf
 
 ## The Design
 
-[Design Link](https://excalidraw.com/#json=11Uxvnw1gCrMXoTM8jysh,3Fuz3npskZEj86VJ3BTlYQ)
+Design Link :  [Excalidraw](https://excalidraw.com/#json=11Uxvnw1gCrMXoTM8jysh,3Fuz3npskZEj86VJ3BTlYQ)
 
 ---
 
@@ -47,8 +47,8 @@ Develop a website that provides a structured, transparent, and trustworthy platf
 4. **Verification Process:**
     - Verification mechanisms to ensure authenticity and prevent scams:
       - **Doctor Verification:** A system to verify the credentials of doctors involved and track their history of cases handled.
-        - [Verify Doctor’s ID](https://www.nmc.org.in/information-desk/indian-medical-register/)
-        - [Check Black List](https://www.nmc.org.in/information-desk/indian-medical-register/black-list-doctors/)
+        -Indian Medical Register : [Verify Doctor’s ID](https://www.nmc.org.in/information-desk/indian-medical-register/)
+        -Indian Medical Register : [Check Black List](https://www.nmc.org.in/information-desk/indian-medical-register/black-list-doctors/)
     - Future Ideas:
       - **Hospital Partnership:** Tie-ups with hospitals to validate the patient’s condition and the need for funds.
       - **Medical Student Involvement:** Allow medical students to verify cases and report on the patient’s status.
