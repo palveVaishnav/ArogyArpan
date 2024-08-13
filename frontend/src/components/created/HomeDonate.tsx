@@ -2,7 +2,6 @@ import { BriefcaseMedical, PenIcon, VerifiedIcon } from "lucide-react";
 import { Button } from "../ui/button";
 import { Progress } from "../ui/progress";
 import { Separator } from "../ui/separator";
-
 function HomeDonate() {
     return (
         <div className="w-full">
@@ -91,7 +90,7 @@ export function FundraiserCard() {
                             </div>
                             {/* <Separator orientation={'horizontal'} className="bg-black md:hidden" /> */}
                             {/* <Separator orientation={'vertical'} className="bg-black hidden md:visible"/> */}
-                            {/* <Separator orientation={'vertical'} className="bg-black" /> */}
+                            <Separator orientation={'vertical'} className="bg-black" />
                             <div className="flex gap-2 items-cente w-full">
                                 {f.verified ?
                                     <>

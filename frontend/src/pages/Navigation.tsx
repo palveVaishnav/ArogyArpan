@@ -14,22 +14,15 @@ import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 // Mode not working 
 // import { ModeToggle } from "./ModeToggle";
 import { Toggle } from "@/components/ui/toggle"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-//pages
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Home from "@/pages/Home";
-import Layout from "@/pages/Layout";
 import { PageList } from "@/utils/PageList";
 
-
-
-
-
 export default function NavBar() {
+    const navigate = useNavigate();
     return (
         <div className='sticky w-full top-0 left-0 right-0 z-10 backdrop-blur-lg rounded-lg border'>
-            <div className= 'py-3 px-2 md:px-[4em] flex justify-between md:justify-evenly items-center shadow-md w-full relative top-0'>
+            <div className='py-3 px-2 md:px-[4em] flex justify-between md:justify-evenly items-center shadow-md w-full relative top-0'>
                 <div className="block md:hidden">
                     <ToggleMenu />
                 </div>
@@ -37,18 +30,13 @@ export default function NavBar() {
                     <WebLogo />
                 </div>
                 <div className='md:flex gap-2 hidden'>
-                    <Button variant={"outline"}>
-                        Home
-                    </Button>
-                    <Button variant={"outline"}>
-                        About
-                    </Button>
-                    <Button variant={"outline"}>
-                        Cases
-                    </Button>
-                    <Button variant={"outline"}>
-                        Contact
-                    </Button>
+                    {PageList.map((p, i) => (
+                        <Button key={i} variant={"outline"}
+                            onClick={() => navigate(p)}
+                        >
+                            {p}
+                        </Button>
+                    ))}
                 </div>
                 <div className="">
                     <Button>Create a Fundraiser</Button>
@@ -78,7 +66,15 @@ export function ToggleMenu() {
                         </SheetDescription>
                     </SheetHeader>
                     <div className="grid gap-4">
-                        <ToggleMenuPages />
+                        {PageList.map((page, index) => (
+                            <SheetClose key={index} asChild>
+                                <Link to={page}>
+                                    <Toggle variant="outline" aria-label="Toggle" className="w-full">
+                                        {page}
+                                    </Toggle>
+                                </Link>
+                            </SheetClose>
+                        ))}
                     </div>
                 </SheetContent>
             </Sheet>
@@ -87,44 +83,13 @@ export function ToggleMenu() {
 }
 
 
-function ToggleMenuPages() {
-    return (
-        <>
-            {PageList.map((page, index) => (
-                <SheetClose key={index} asChild>
-                    <Link to={page}>
-                        <Toggle variant="outline" aria-label="Toggle" className="w-full">
-                            {page}
-                        </Toggle>
-                    </Link>
-                </SheetClose>
-            ))}
-        </>
-    )
-}
-
-
 function WebLogo() {
     return (
-        <Link to="/">
-            <p className='font-mono text-xl'>
+        <Link to="/Home">
+            <p className='font-mono text-xl'>                
                 Arogy<span className="text-orange-400">Arpan</span>
             </p>
         </Link>
     )
 }
 
-export function Routing() {
-    return (
-        <div>
-            <BrowserRouter>
-                <Routes>
-                    <Route path='/' element={<Layout />}>
-                        <Route index element={<Home />}></Route>
-                        <Route path='home' element={<Home />}></Route>
-                    </Route>
-                </Routes>
-            </BrowserRouter>
-        </div>
-    )
-}

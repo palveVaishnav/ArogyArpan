@@ -24,6 +24,9 @@ Develop a website that provides a structured, transparent, and trustworthy platf
 
 Design Link :  [Excalidraw](https://excalidraw.com/#json=11Uxvnw1gCrMXoTM8jysh,3Fuz3npskZEj86VJ3BTlYQ)
 
+Development journey : [Notion](https://recondite-carol-cf4.notion.site/ArogyArpan-Fundraiser-for-medical-emergencies-beebadf75570410d900a1cdf84bbedb0)
+
+
 ---
 
 ### Key Features:
