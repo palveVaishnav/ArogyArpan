@@ -1,4 +1,4 @@
-import { BriefcaseMedical, PenIcon, VerifiedIcon } from "lucide-react";
+import { PenIcon, VerifiedIcon } from "lucide-react";
 import { Button } from "../ui/button";
 import { Progress } from "../ui/progress";
 import { Separator } from "../ui/separator";
@@ -74,53 +74,51 @@ export function FundraiserCard() {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 place-content-center md:p-4 gap-10 rounded-lg">
             {fundraiserInfo.map((f) => (
-                <div key={f.id} className="flex border shadow-sm rounded-xl p-4  gap-1 w-full hover:shadow-lg">
+                <div key={f.id} className="grid lg:flex border shadow-sm rounded-xl gap-1 w-full hover:shadow-md hover:bg-gray-100">
                     <div className="w-full border overflow-hidden rounded-lg shadow-md">
                         {/* A Carausal style slider */}
                         <img src={f.img} className="w-full h-full" />
                     </div>
                     <div className="grid gap-2 w-full p-2">
-                        <div className="text-lg font-bold md:text-2xl w-full overflow-hidden">
+                        <div className="text-[1.2em] font-bold md:text-xl w-full overflow-hidden">
                             {f.title}
                         </div>
-                        <div className="grid md:flex border rounded-md h-fit w-full p-1 justify-around overflow-hidden gap-1 items-center">
+                        <div className="">
+                            <div className="h-5 overflow-hidden hidden md:block">
+                                ...{f.story}
+                            </div>                            
+                        </div>
+                        <div className="text-left grid md:flex border rounded-md h-fit w-full p-1 justify-around overflow-hidden gap-1 md:gap-2 items-center">
                             <div className="flex gap-1 items-center w-full">
                                 <PenIcon size={15} />
                                 {f.author}
                             </div>
-                            {/* <Separator orientation={'horizontal'} className="bg-black md:hidden" /> */}
+                            <Separator orientation={'horizontal'} className="bg-black md:hidden" />
                             {/* <Separator orientation={'vertical'} className="bg-black hidden md:visible"/> */}
-                            <Separator orientation={'vertical'} className="bg-black" />
-                            <div className="flex gap-2 items-cente w-full">
+                            <Separator orientation={'vertical'} className="bg-black md:py-3" />
+                            <div className="flex gap-2 w-full">
                                 {f.verified ?
-                                    <>
-                                        <BriefcaseMedical size={25} />
+                                    <div className="flex">
+                                        <VerifiedIcon className="text-blue-400" />
                                         <div>{f.doctor}</div>
-                                        <div>
-                                            <VerifiedIcon className="text-blue-400" />
-                                        </div>
-                                    </>
+                                    </div>
                                     :
                                     <>Not Verified</>
                                 }
                             </div>
                         </div>
-                        <div className="">
-                            <div className="h-5 overflow-hidden hidden md:block">
-                                ...{f.story}
-                            </div>
-                            <Button variant={'outline'} className="border-[#333] hover:bg-primary hover:text-secondary">Read Complete Story</Button>
-                        </div>
+                        
                         <div className="p-2 w-full grid gap-1">
                             <div>
                                 <div>Amount Raised : {f.raised} / {f.totalAmount}</div>
                             </div>
                             <div className="grid">
-                                <Progress max={f.totalAmount} value={f.raised} className="border border-black"/>
+                                <Progress max={f.totalAmount} value={f.raised} className="border border-black" />
                             </div>
                         </div>
-                        <div className="w-full">
+                        <div className="w-full flex gap-2">
                             <Button variant={'outline'} className="w-full bg-green-400 hover:bg-green-500 border hover:border-black ">Contribute</Button>
+                            <Button variant={'outline'} className="border-[#333] hover:bg-primary hover:text-secondary">Read More</Button>
                         </div>
                     </div>
                 </div>

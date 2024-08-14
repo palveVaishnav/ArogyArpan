@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { AwardIcon, BadgeIndianRupee, HelpingHand } from "lucide-react";
+import { AwardIcon, BadgeIndianRupee, HandHeart } from "lucide-react";
 
 
 function DonorProfile() {
@@ -71,7 +71,7 @@ function DonorProfile() {
 
                     <div className="profileBadge">
                         <div className="grid place-content-center">
-                            <HelpingHand size={15} strokeWidth={2} className="icons" />
+                            <HandHeart size={15} strokeWidth={2} className="icons" />
                         </div>
                         <div className="grid place-content-center">
                             {'25+'}
