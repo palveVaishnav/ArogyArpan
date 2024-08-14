@@ -72,53 +72,59 @@ export function FundraiserCard() {
     ];
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 place-content-center md:p-4 gap-10 rounded-lg">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-content-center rounded-lg m-4 md:mx-[10em] gap-6">
             {fundraiserInfo.map((f) => (
-                <div key={f.id} className="grid lg:flex border shadow-sm rounded-xl gap-1 w-full hover:shadow-md hover:bg-gray-100">
-                    <div className="w-full border overflow-hidden rounded-lg shadow-md">
-                        {/* A Carausal style slider */}
-                        <img src={f.img} className="w-full h-full" />
-                    </div>
-                    <div className="grid gap-2 w-full p-2">
-                        <div className="text-[1.2em] font-bold md:text-xl w-full overflow-hidden">
-                            {f.title}
-                        </div>
-                        <div className="">
-                            <div className="h-5 overflow-hidden hidden md:block">
-                                ...{f.story}
-                            </div>                            
-                        </div>
-                        <div className="text-left grid md:flex border rounded-md h-fit w-full p-1 justify-around overflow-hidden gap-1 md:gap-2 items-center">
-                            <div className="flex gap-1 items-center w-full">
-                                <PenIcon size={15} />
-                                {f.author}
+                <div key={f.id} className="grid place-content-center w-full">
+                    <div className="grid w-[20em] lg:w-[22em] Bborder shadow-sm rounded-xl bg-slate-300 gap-4 group">
+                        <div className="w-full border overflow-hidden relative text-white">
+                            {/* A Carausal style slider */}
+                            <div className="relative">
+                                <img src={f.img} className="w-full h-full" />
                             </div>
-                            <Separator orientation={'horizontal'} className="bg-black md:hidden" />
-                            {/* <Separator orientation={'vertical'} className="bg-black hidden md:visible"/> */}
-                            <Separator orientation={'vertical'} className="bg-black md:py-3" />
-                            <div className="flex gap-2 w-full">
-                                {f.verified ?
-                                    <div className="flex">
-                                        <VerifiedIcon className="text-blue-400" />
-                                        <div>{f.doctor}</div>
+                            <div className="absolute bottom-0 p-5 backdrop-blur-lg rounded-t-3xl overflow-hidden border h-[7em] group-hover:h-[10em] w-full">
+                                <div className="text-[1.2em] font-semibold md:text-xl w-full overflow-hidden">
+                                    {f.title}
+                                </div>
+                                <div className="">
+                                    <div className="h-10 overflow-hidden hidden group-hover:block">
+                                        ...{f.story}
                                     </div>
-                                    :
-                                    <>Not Verified</>
-                                }
+                                </div>
                             </div>
                         </div>
-                        
-                        <div className="p-2 w-full grid gap-1">
-                            <div>
-                                <div>Amount Raised : {f.raised} / {f.totalAmount}</div>
+                        <div className="grid w-full p-4 gap-2 rounded-t-3xl overflow-hidden">
+                            <div className="text-left grid md:flex border rounded-md h-fit w-full p-1 justify-around overflow-hidden gap-1 md:gap-2 items-center">
+                                <div className="flex gap-1 items-center w-full">
+                                    <PenIcon size={15} />
+                                    {f.author}
+                                </div>
+                                <Separator orientation={'horizontal'} className="bg-black md:hidden" />
+                                {/* <Separator orientation={'vertical'} className="bg-black hidden md:visible"/> */}
+                                <Separator orientation={'vertical'} className="bg-black md:py-3" />
+                                <div className="flex gap-2 w-full">
+                                    {f.verified ?
+                                        <div className="flex">
+                                            <VerifiedIcon className="text-blue-400" />
+                                            <div>{f.doctor}</div>
+                                        </div>
+                                        :
+                                        <div>Not Verified</div>
+                                    }
+                                </div>
                             </div>
-                            <div className="grid">
-                                <Progress max={f.totalAmount} value={f.raised} className="border border-black" />
+
+                            <div className="p-2 w-full grid gap-1">
+                                <div>
+                                    <div>Amount Raised : {f.raised} / {f.totalAmount}</div>
+                                </div>
+                                <div className="grid">
+                                    <Progress max={f.totalAmount} value={f.raised} />
+                                </div>
                             </div>
-                        </div>
-                        <div className="w-full flex gap-2">
-                            <Button variant={'outline'} className="w-full bg-green-400 hover:bg-green-500 border hover:border-black ">Contribute</Button>
-                            <Button variant={'outline'} className="border-[#333] hover:bg-primary hover:text-secondary">Read More</Button>
+                            <div className="w-full flex gap-2">
+                                <Button variant={'outline'} className="w-full border-[#333] hover:bg-primary hover:text-secondary">Contribute </Button>
+                                <Button variant={'outline'} className="border-[#333] hover:bg-primary hover:text-secondary">Read More</Button>
+                            </div>
                         </div>
                     </div>
                 </div>

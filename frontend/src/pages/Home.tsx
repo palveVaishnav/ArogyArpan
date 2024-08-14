@@ -7,14 +7,20 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
     return (
-        <div className="grid gap-2 bg-white">
+        <div className="grid bg-white">
             <div className="bg-slate-200 p-6 curvedB-R-S md:curvedB-R-M lg:curvedB-R-L">
                 <Hero />
             </div>
-            <div className="curvedT-L-S md:curvedT-L-M lg:curvedT-L-L">
-                <DonateSection />
+            <div className="bg-slate-200">
+                <div 
+                    className="bg-white 
+                        contribute-S md:contribute-M lg:contribute-L 
+                        ml-[5em] lg:ml-[20em]
+                    ">
+                    <DonateSection />
+                </div>
             </div>
-            <div className="p-4 bg-slate-300">
+            <div className="p-4 bg-slate-200 curvedT-R-S md:curvedT-R-M lg:curvedT-R-L">
                 <JoinSection />
             </div>
             <div className="">
@@ -62,7 +68,9 @@ function JoinSection() {
 
 function DonateSection() {
     return (
-        <div className="">
+        <div className="
+            -ml-[5em] lg:-ml-[20em]
+        ">
             <div className="grid overflow-hidden max-w-full py-4 p-2 gap-2 md:gap-4">
                 <div className="grid place-content-center gap-1">
                     <p className="SectionTitle">
