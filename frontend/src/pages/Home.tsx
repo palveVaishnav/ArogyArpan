@@ -7,11 +7,11 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
     return (
-        <div className="grid gap-4">
-            <div className="p-6 bg-slate-300">
+        <div className="grid gap-2 bg-white">
+            <div className="bg-slate-200 p-6 curvedB-R-S md:curvedB-R-M lg:curvedB-R-L">
                 <Hero />
             </div>
-            <div className="">
+            <div className="curvedT-L-S md:curvedT-L-M lg:curvedT-L-L">
                 <DonateSection />
             </div>
             <div className="p-4 bg-slate-300">
@@ -34,10 +34,10 @@ function TestimonialSection() {
                 <p className="w-fit place-self-center">Stories of Hope and Trust</p>
             </div>
             <div className="overflow-hidden">
-            <Testimonial />
+                <Testimonial />
+            </div>
         </div>
-        </div>
-        
+
     )
 }
 
@@ -62,15 +62,17 @@ function JoinSection() {
 
 function DonateSection() {
     return (
-        <div className=" grid overflow-hidden max-w-full py-4 p-2 gap-2 md:gap-4">
-            <div className="grid place-content-center gap-1">
-                <p className="SectionTitle">
-                    <Link to="">Contribute Now</Link>
-                </p>
-                <p className="w-fit place-self-center">Help people Directly !!</p>
-            </div>
-            <div className="p-4">
-                <HomeDonate />
+        <div className="">
+            <div className="grid overflow-hidden max-w-full py-4 p-2 gap-2 md:gap-4">
+                <div className="grid place-content-center gap-1">
+                    <p className="SectionTitle">
+                        <Link to="">Contribute Now</Link>
+                    </p>
+                    <p className="w-fit place-self-center">Help people Directly !!</p>
+                </div>
+                <div className="p-4">
+                    <HomeDonate />
+                </div>
             </div>
         </div>
     )

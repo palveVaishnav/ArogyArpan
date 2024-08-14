@@ -3,23 +3,71 @@
 @tailwind utilities;
 
 
-@layer components{
-    .SectionTitle{
+@layer components {
+    .SectionTitle {
         @apply text-4xl font-bold font-serif
     }
-    .Bborder{
+
+    .Bborder {
         @apply border border-black
     }
-    .Rborder{
+
+    .Rborder {
         @apply border border-red-600
     }
-    .icons{
+
+    .icons {
         @apply md:w-10 md:h-10
     }
-    .profileBadge{
+
+    .profileBadge {
         @apply grid place-content-center p-4 shadow-md hover:shadow-xl border rounded-xl md:w-80
     }
-    .patronBadge{
+
+    .patronBadge {
         @apply grid place-content-center p-1 shadow-md border rounded-xl
     }
+
+    .theBlob {
+        animation: animateBlob 5s ease-in-out infinite;
+        transition: all 1s ease-in-out;
+    }
+    .curvedB-R-S{
+        border-radius: 0 0 10em 0;
+    } 
+    .curvedB-R-M{
+        border-radius: 0 0 15em 0;
+    }
+    .curvedT-L-S{
+        border-radius: 5em 0 0 0;
+    }
+    .curvedT-L-M{
+        border-radius: 10em 0 0 0;
+    }
+    .curvedT-L-L{
+        border-radius: 20em 0 0 0;
+    }
+
+    @keyframes animateBlob {
+        0% {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+
+        25% {
+            border-radius: 55% 45% 35% 65% / 65% 35% 65% 45%;
+        }
+
+        50% {
+            border-radius: 50% 50% 40% 60% / 60% 40% 60% 50%;
+        }
+
+        75% {
+            border-radius: 65% 35% 45% 55% / 55% 45% 55% 35%;
+        }
+
+        100% {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+    }
+
 }
