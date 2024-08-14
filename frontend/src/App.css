@@ -7,4 +7,19 @@
     .SectionTitle{
         @apply text-4xl font-bold font-serif
     }
+    .Bborder{
+        @apply border border-black
+    }
+    .Rborder{
+        @apply border border-red-600
+    }
+    .icons{
+        @apply md:w-10 md:h-10
+    }
+    .profileBadge{
+        @apply grid place-content-center p-4 shadow-md hover:shadow-xl border rounded-xl md:w-80
+    }
+    .patronBadge{
+        @apply grid place-content-center p-1 shadow-md border rounded-xl
+    }
 }
