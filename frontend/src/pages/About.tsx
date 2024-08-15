@@ -35,13 +35,13 @@ function About() {
                     <div className="grid m-10">
                         <div className="grid place-content-center grid-cols-3 gap-4 md:m-20 lg:px-[4em]">
                             <div className="overflow-hidden rounded-md shadow-lg hover:-translate-y-1  shadow-orange-300">
-                                <img src="../src/assets/4.png" />
+                                <img src={"/images/4.png"}/>
                             </div>
                             <div className="overflow-hidden rounded-md shadow-md hover:-translate-y-1  shadow-violet-300">
-                                <img src="../src/assets/7.png" />
+                                <img src={"/images/7.png"}/>
                             </div>
                             <div className="overflow-hidden rounded-md shadow-md hover:-translate-y-1  shadow-green-300">
-                                <img src="../src/assets/15.png" />
+                                <img src={"/images/15.png"} />
                             </div>
                         </div>
                     </div>

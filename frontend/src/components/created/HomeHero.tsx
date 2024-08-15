@@ -33,7 +33,7 @@ const Hero = () => {
           {/* <ShuffleGrid /> */}
           <div className="grid place-content-center w-full">
             <div className="theBlob bg-[#75afba] max-h-[30vh] lg:min-h-[50vh] md:max-w-[50vh]  overflow-hidden rounded-lg md:m-4 p-2">
-              <img src="../src/assets/12.png" className="w-full h-full"/>
+              <img src={"/images/12.png"} className="w-full h-full"/>
             </div>
             
           </div>
