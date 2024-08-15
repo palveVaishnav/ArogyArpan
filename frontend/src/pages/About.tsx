@@ -48,7 +48,7 @@ function About() {
                 </div>
 
                 {/* Stats  */}
-                <div className="bg-slate-100 mt-10 p-5">
+                <div className="primaryBackground mt-10 p-5">
                     <div className="w-full grid place-content-center text-xl lg:text-3xl font-semibold font-mono">
                         Our Community
                     </div>
@@ -103,9 +103,9 @@ function About() {
                     </div>
                     <div className="grid place-content-center w-full p-5">
 
-                        <div className="Bborder flex w-full p-5 rounded-xl gap-2">
-                            <div className="w-[5em] md:w-[6em] lg:w-[8.5rem] h-[5em] md:h-[6em] lg:h-[8.5rem] rounded-xl border overflow-hidden">
-                                <img src="../src/assets/profile.png" className="w-full h-full"/>
+                        <div className="flex w-full p-5 rounded-xl gap-2 shadow-md border">
+                            <div className="w-[5em] md:w-[6em] lg:w-[8.5rem] h-[5em] md:h-[6em] lg:h-[8.5rem] rounded-xl border overflow-hidden bg-[#c1d9db]">
+                                <img src={"/images/profile3.png"} className="w-full h-full"/>
                             </div>
                             <div className=" grid md:p-5 gap-1 md:gap-2">
                                 <div className="text-base font-semibold md:text-xl">

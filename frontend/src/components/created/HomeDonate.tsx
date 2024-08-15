@@ -72,14 +72,14 @@ export function FundraiserCard() {
     ];
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-content-center rounded-lg m-4 md:mx-[10em] gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 place-content-center rounded-lg m-4 md:mx-[10em] gap-6">
             {fundraiserInfo.map((f) => (
                 <div key={f.id} className="grid place-content-center w-full">
-                    <div className="grid w-[20em] lg:w-[22em] Bborder shadow-sm rounded-xl bg-slate-300 gap-4 group">
+                    <div className="grid w-[20em] lg:w-[22em] Bborder shadow-sm rounded-xl bg-slate-300 gap-4 group overflow-hidden">
                         <div className="w-full border overflow-hidden relative text-white">
                             {/* A Carausal style slider */}
-                            <div className="relative">
-                                <img src={f.img} className="w-full h-full" />
+                            <div className="relative overflow-hidden">
+                                <img src={f.img} className="w-full h-full rounded-md overflow-hidden" />
                             </div>
                             <div className="absolute bottom-0 p-5 backdrop-blur-lg rounded-t-3xl overflow-hidden border h-[7em] group-hover:h-[10em] w-full">
                                 <div className="text-[1.2em] font-semibold md:text-xl w-full overflow-hidden">

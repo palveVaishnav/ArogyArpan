@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 
+@layer base{
+    .primaryBackground{
+        @apply bg-slate-200
+    }
+}
+
+
 @layer components {
     .SectionTitle {
         @apply text-4xl font-bold font-serif
@@ -43,6 +50,17 @@
         border-radius: 0 0 20em 0;
     }
     
+    /* Fundraisers section */
+    .curvedStoryS{
+        border-radius: 2em 10em 2em 0;
+    }
+    .curvedStoryM{
+        border-radius: 2em 30em 2em 0;
+    }
+    .curvedStoryL{
+        border-radius: 2em 40em 2em 0;
+    }
+
     /* Contribute section home page */
     .contribute-S{
         border-radius: 10em 0 0 10em;
