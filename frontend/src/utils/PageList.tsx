@@ -3,6 +3,9 @@ export const PageList = [
     "Fundraisers",
     "Fundraiser",
     "About",
+    "Profile",
     "Doctor",
-    "Donor",
+    "Donor,"
 ]
+
+

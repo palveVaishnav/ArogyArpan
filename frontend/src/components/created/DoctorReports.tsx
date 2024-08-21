@@ -81,7 +81,7 @@ function DoctorReports() {
                                     </div>
                                     <div className="text-black text-md font-bold">
                                         {/* &nbsp;&#8377; */}
-                                        {"Fraud"}
+                                        {"Invalid"}
                                     </div>
                                 </div>
                             }

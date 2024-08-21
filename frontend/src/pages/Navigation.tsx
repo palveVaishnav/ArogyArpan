@@ -1,5 +1,4 @@
 "use client"
-
 import { Button } from "@/components/ui/button"
 import {
     Sheet,
@@ -11,15 +10,49 @@ import {
     SheetClose,
 } from "@/components/ui/sheet"
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
-// Mode not working 
-// import { ModeToggle } from "./ModeToggle";
-import { Toggle } from "@/components/ui/toggle"
 import { Link, useNavigate } from "react-router-dom";
 
-import { PageList } from "@/utils/PageList";
+function NavButtons() {
+    const navigate = useNavigate();
+    return (
+        <>
+            <Button variant={"outline"}
+                onClick={() => navigate("/Home")}
+            >
+                Home
+            </Button>
+            <Button variant={"outline"}
+                onClick={() => navigate("/Fundraisers")}
+            >
+                Fundraisers
+            </Button>
+            <Button variant={"outline"}
+                onClick={() => navigate("/About")}
+            >
+                About
+            </Button>
+            <Button
+                onClick={() => navigate("/createFundraiser")}
+            >
+                Create Fundraiser
+            </Button>
+            <Button
+                onClick={LogOut}
+            >
+                Logout
+            </Button>
+
+        </>
+    )
+}
+
+const LogOut = () =>{
+    localStorage.removeItem("token");
+    localStorage.removeItem("type");
+}
 
 export default function NavBar() {
-    const navigate = useNavigate();
+    const navigate = useNavigate()
     return (
         <div className='sticky w-full top-0 left-0 right-0 z-10 backdrop-blur-lg rounded-lg border'>
             <div className='py-3 px-2 md:px-[4em] flex justify-between md:justify-evenly items-center shadow-md w-full relative top-0'>
@@ -30,16 +63,45 @@ export default function NavBar() {
                     <WebLogo />
                 </div>
                 <div className='md:flex gap-2 hidden'>
-                    {PageList.map((p, i) => (
-                        <Button key={i} variant={"outline"}
-                            onClick={() => navigate(p)}
-                        >
-                            {p}
-                        </Button>
-                    ))}
+                    <NavButtons />
+
                 </div>
-                <div className="">
-                    <Button>Create a Fundraiser</Button>
+                <div className="rounded-full flex gap-2">
+                    {localStorage.getItem("token") ?
+                        <>
+                            <Button
+                                className="md:hidden"
+                                onClick={() => navigate("/createfundraiser")}
+                            >
+                                Create Fundraiser
+                            </Button>
+                            <div
+                                className="rounded-full border overflow-hidden w-12 cursor-pointer"
+                                onClick={() => navigate("/Profile")}
+                            >
+                                <img    
+                                    className="w-full h-full"
+                                    src="https://avatar.iran.liara.run/public"
+                                 />
+                            </div>
+
+                        </>
+                        :
+                        <>
+                            <Button
+                                className="md:hidden"
+                                onClick={() => navigate("/createfundraiser")}
+                            >
+                                Create Fundraiser
+                            </Button>
+                            <Button
+                                // className="hidden md:block"
+                                onClick={() => navigate("/Signin")}
+                            >
+                                Login
+                            </Button>
+                        </>
+                    }
                 </div>
             </div>
         </div>
@@ -49,7 +111,6 @@ export default function NavBar() {
 
 export function ToggleMenu() {
     const side = "left";
-
     return (
         <div className="grid grid-cols-2 gap-2">
             <Sheet>
@@ -66,15 +127,9 @@ export function ToggleMenu() {
                         </SheetDescription>
                     </SheetHeader>
                     <div className="grid gap-4">
-                        {PageList.map((page, index) => (
-                            <SheetClose key={index} asChild>
-                                <Link to={page}>
-                                    <Toggle variant="outline" aria-label="Toggle" className="w-full">
-                                        {page}
-                                    </Toggle>
-                                </Link>
-                            </SheetClose>
-                        ))}
+                        <SheetClose asChild>
+                            <NavButtons />
+                        </SheetClose>
                     </div>
                 </SheetContent>
             </Sheet>
@@ -83,10 +138,10 @@ export function ToggleMenu() {
 }
 
 
-function WebLogo() {
+export function WebLogo() {
     return (
         <Link to="/Home">
-            <p className='font-mono text-xl'>                
+            <p className='font-mono text-xl'>
                 Arogy<span className="text-orange-400">Arpan</span>
             </p>
         </Link>

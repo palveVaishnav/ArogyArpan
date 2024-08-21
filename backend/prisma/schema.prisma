@@ -1,0 +1,106 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  // will use cuid's for id later 
+  id            Int           @id @default(autoincrement())
+  createdAt     DateTime      @default(now())
+  name          String
+  // id donor wants to hide there id
+  stayAnonymous Boolean       @default(false)
+  // username    String       @default(cuid())
+  // URL of the Image -> defaut random
+  profileImg    String?       @default("https://avatar.iran.liara.run/public")
+  email         String        @unique
+  password      String
+  bio           String?
+  patron        Boolean       @default(false)
+  fundraisers   Fundraiser[]
+  donations     Transaction[]
+}
+
+model Doctor {
+  id           Int      @id @default(autoincrement())
+  createdAt    DateTime @default(now())
+  name         String
+  // username  String
+  // doctor Verifcation
+  selfVerified Boolean  @default(false)
+
+  regno          Int      @unique
+  regDate        DateTime
+  qualifications Json?
+  StateCouncil   String
+
+  // URL of the Image -> default random 
+  profileImg  String?       @default("https://avatar.iran.liara.run/public/job/doctor/male")
+  email       String
+  password    String
+  bio         String?
+  patron      Boolean       @default(false)
+  fundraisers Fundraiser[]
+  donations   Transaction[]
+  verify      Validation[]
+}
+
+model Fundraiser {
+  id          Int           @id @default(autoincrement())
+  author      User          @relation(fields: [authorId], references: [id])
+  authorId    Int
+  authorName  String
+  createdAt   DateTime      @default(now())
+  title       String
+  patientName String
+  age         Int
+  location    String
+  hospital    String
+  disgnose    String
+  story       String
+  amount      Int
+  raised      Int           @default(0)
+  due         DateTime
+  verified    Boolean       @default(false)
+  // doctor associated 
+  doctor      Doctor?       @relation(fields: [doctorId], references: [id])
+  doctorId    Int?
+  doctorName  String?
+  img         String       @default("https://picsum.photos/200")
+  // donors associated 
+  donations   Transaction[]
+  Validation  Validation[]
+}
+
+model Transaction {
+  id           Int        @id @default(autoincrement())
+  // Donor  Details
+  User         User?      @relation(fields: [userId], references: [id])
+  userId       Int?
+  Doctor       Doctor?    @relation(fields: [doctorId], references: [id])
+  doctorId     Int?
+  donorName    String     @default("Anonymous")
+  amount       Int
+  time         DateTime   @default(now())
+  status       Boolean
+  message      String?
+  // fundraiser  associated 
+  Fundraiser   Fundraiser @relation(fields: [fundraiserId], references: [id])
+  fundraiserId Int
+}
+
+model Validation {
+  id           Int        @id @default(autoincrement())
+  Doctor       Doctor     @relation(fields: [doctorId], references: [id])
+  doctorId     Int
+  fundraiser   Fundraiser @relation(fields: [fundraiserId], references: [id])
+  fundraiserId Int
+  createdAt    DateTime   @default(now())
+  status       Boolean
+  message      String?
+  
+}

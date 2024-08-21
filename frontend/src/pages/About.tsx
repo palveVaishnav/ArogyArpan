@@ -21,10 +21,10 @@ function About() {
                     <div className="grid place-content-center px-10 mt-10">
                         <p className="lg:text-lg">
                             A dedicated platform designed to provide
-                            {" "}<span className="bg-orange-300 p-1 rounded-md font-semibold">structured</span>,
-                            {" "}<span className="bg-violet-300 p-1 rounded-md font-semibold">transparent</span>
+                            {" "}<span className="bg-[#f2d6ae] p-1 rounded-md font-semibold">structured</span>,
+                            {" "}<span className="bg-[#eb5b7d57] p-1 rounded-md font-semibold">transparent</span>
                             , and
-                            {" "}<span className="bg-green-300 p-1 rounded-md font-semibold">trustworthy</span>
+                            {" "}<span className="bg-[#c3776a54] p-1 rounded-md font-semibold">trustworthy</span>
                             {" "}<span className="underline p-1">financial assistance</span>
                             {" "}in times of
                             {" "}<span className="underline p-1">medical emergencies.</span>
@@ -102,8 +102,7 @@ function About() {
                         Our Team
                     </div>
                     <div className="grid place-content-center w-full p-5">
-
-                        <div className="flex w-full p-5 rounded-xl gap-2 shadow-md border">
+                        <div className="flex w-full p-5 rounded-xl gap-2 hover:shadow-lg border">
                             <div className="w-[5em] md:w-[6em] lg:w-[8.5rem] h-[5em] md:h-[6em] lg:h-[8.5rem] rounded-xl border overflow-hidden bg-[#c1d9db]">
                                 <img src={"/images/profile3.png"} className="w-full h-full"/>
                             </div>

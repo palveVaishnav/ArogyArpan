@@ -1,57 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
-import { IndianRupee, Pen, QrCode, VerifiedIcon } from "lucide-react";
-
-const fundraiser = {
-    title: 'Help Rakesh Fight Against Covid-19',
-    img: 'https://picsum.photos/500',
-    author: 'Rohit Khurana',
-    doctor: 'Dr. A. Gupta',
-    verified: true,
-    patientName: 'Rakesh Sharma',
-    patientAge: 31,
-    diagnose: 'Covid-19',
-    flag: 'Urgent',
-    story: "Meena has always been the pillar of her family, a devoted mother, loving wife, and a caring daughter. At 38, she never imagined that her world would come crashing down with the devastating news of her cancer diagnosis. What started as a minor discomfort soon turned into something far more serious when she was diagnosed with Stage 3 breast cancer. This news shook the entire family to its core, leaving them grappling with the harsh reality of the battle ahead.\n\n" +
-        "Meena's journey since the diagnosis has been nothing short of a nightmare. From frequent hospital visits to grueling chemotherapy sessions, every day has been a struggle. The once-vibrant woman, who was always full of life and energy, now finds herself fighting for every breath. The physical pain is excruciating, but the emotional toll on her and her family is even greater. Despite the tremendous pain and suffering, Meena’s spirit remains unbroken. She is determined to fight this battle with everything she has, not just for herself, but for her young children who still need their mother.\n\n" +
-        "However, the cost of her treatment is staggering. The chemotherapy sessions, medications, surgeries, and ongoing medical care have drained the family's savings. Her husband, Arjun, works tirelessly, but his income is barely enough to cover the basic expenses, let alone the mounting medical bills. The family has already sold off many of their belongings and borrowed heavily from friends and relatives, but it is still not enough. They are now at a point where they need help from the community to continue Meena’s treatment.\n\n" +
-        "This is where your support comes in. By contributing to Meena’s fundraiser, you can help ensure that she gets the treatment she desperately needs. Every donation, no matter how small, brings her one step closer to recovery. Your generosity can make a real difference in Meena’s life, giving her the chance to see her children grow up, to live the life she dreams of, and to continue being the loving, caring person she has always been.\n\n" +
-        "Meena's battle is far from over, but with your help, she can win this fight. Please consider donating to her cause and spreading the word. Together, we can help Meena overcome cancer and return to the life she loves.",
-    totalAmount: 400000,
-    raised: 39000,
-    Hospital: 'Ruby Hall Clinic, Pune',
-    Location: 'Shivajinagar, Pune, MH, India',
-    StoryDate: Date.now(),
-    lastDate: '31 Jan,2024',
-    // Save details of users who donated to this fundraiser
-    Donors: [
-        {
-            name: 'Rohit',
-            amount: '500',
-            timeStamp: '8:30 21-08-2024'
-        },
-        {
-            name: 'Rohit',
-            amount: '500',
-            timeStamp: '8:30 21-08-2024'
-        },
-        {
-            name: 'Rohit',
-            amount: '500',
-            timeStamp: '8:30 21-08-2024'
-        },
-        {
-            name: 'Rohit',
-            amount: '500',
-            timeStamp: '8:30 21-08-2024'
-        },
-    ],
-
-
-}
+import { useFundraisersById } from "@/hooks/getFundraiser";
+import { FundraiserType } from "@palve_vaishnav/arogyarpan";
+import { FileIcon, IndianRupee, Pen, QrCode, VerifiedIcon } from "lucide-react";
+import { useParams } from "react-router-dom";
 
 function Fundraiser() {
+    const { id } = useParams();
+    const fundraiser: FundraiserType = useFundraisersById({ id: Number(id) });
+    if (!fundraiser) {
+        return null;
+    }
     return (
         <div className="grid w-full gap-4 bg-white">
 
@@ -63,7 +23,7 @@ function Fundraiser() {
                 {/* Image and Video part */}
                 <div className="w-full border border-black max-h-[30em] rounded-2xl overflow-hidden">
                     {/* this has to turned into an auto slider to view and play contents */}
-                    <img src={fundraiser.img} alt="Patient Image" className="w-full h-full" />
+                    <img src={`https://picsum.photos/2${fundraiser.id}`} alt="Patient Image" className="w-full h-full" />
                 </div>
 
                 {/* Patient Details Section */}
@@ -76,39 +36,48 @@ function Fundraiser() {
                             Patient Name : {fundraiser.patientName}
                         </div>
                         <div>
-                            Age : {fundraiser.patientAge}
+                            Age : {fundraiser.age}
                         </div>
                         <div>
-                            Location : {fundraiser.Location}
+                            Location : {fundraiser.location}
                         </div>
                         <div>
-                            Hospital : {fundraiser.Hospital}
+                            Hospital : {fundraiser.hospital}
                         </div>
                         <div>
-                            Diagnosed : {fundraiser.diagnose}
+                            Diagnosed : {fundraiser.disgnose}
                         </div>
+                        {/* <div>
+                            Level : {fundraiser.}
+                        </div> */}
                         <div>
-                            Level : {fundraiser.flag}
-                        </div>
-                        <div>
-                            Need Money By : {fundraiser.lastDate}
+                            {/* Need Money By : {fundraiser.due.getDate()} */}
                         </div>
 
 
                         {/* Verified Tag */}
-                        <div className="border p-2 my-2 gap-2 bg-blue-100 rounded-md w-fit shadow-md">
-                            {fundraiser.verified ?
-                                <div className="flex text-lg gap-2">
-                                    Verrified By : {fundraiser.doctor}
-                                    <VerifiedIcon className="text-blue-500" />
-                                </div>
-                                :
+                        <div className="grid md:flex md:gap-2">
+                            <div className="border p-2 my-2 gap-2 bg-blue-100 rounded-md w-fit shadow-md">
+                                {fundraiser.verified ?
+                                    <div className="flex text-lg gap-2">
+                                        Verrified By : {fundraiser.doctorName}
+                                        <VerifiedIcon className="text-blue-500" />
+                                    </div>
+                                    :
+                                    <div>
+                                        Not Verified | Check Docks :
+                                    </div>
+                                }
+                            </div>
+                            <div className="flex items-center border p-2 my-2 gap-2 bg-blue-100 rounded-md w-fit shadow-md">
                                 <div>
-                                    Not Verified, Checck Docks
+                                    <FileIcon />
                                 </div>
-                            }
+                                <div className="flex text-md gap-2">
+                                    <p>Documents</p>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
 
                     <div className="grid">
@@ -116,19 +85,19 @@ function Fundraiser() {
                             <div className="p-4 md:px-8 grid gap-2">
                                 <div className="md:font-medium flex gap-2 items-center">
                                     &nbsp;&#8377;
-                                    {" "}{fundraiser.raised} / {fundraiser.totalAmount}
+                                    {" "}{fundraiser.raised} / {fundraiser.amount}
                                 </div>
                                 <div>
-                                    <Progress max={fundraiser.totalAmount} value={fundraiser.raised} className="border border-black" />
+                                    <Progress max={fundraiser.amount} value={fundraiser.raised} className="border border-black" />
                                 </div>
                             </div>
                         </div>
                         <div className="text-lg font-semibold p-2 md:p-4 underline">
-                            {fundraiser.Donors.length}+ supports
+                            98+ supports
                         </div>
                         <div className="flex gap-2 items-center p-2 underline">
                             <Pen size={15} />
-                            <p>Fundraiser by : {fundraiser.author}</p>
+                            <p>Fundraiser by : {fundraiser.authorName}</p>
                         </div>
                     </div>
                 </div>
@@ -152,8 +121,8 @@ function Fundraiser() {
                         {/* progress bar */}
                         <div className="w-full">
                             <div className="p-4">
-                                <div className="font-medium">Amount : {fundraiser.raised} / {fundraiser.totalAmount} </div>
-                                <Progress max={fundraiser.totalAmount} value={fundraiser.raised} className="border border-black p-4" />
+                                <div className="font-medium">Amount : {fundraiser.raised} / {fundraiser.amount} </div>
+                                <Progress max={fundraiser.amount} value={fundraiser.raised} className="border border-black p-4" />
                             </div>
                         </div>
                         {/* Amount Specific Qr default : Remaining */}
@@ -167,7 +136,7 @@ function Fundraiser() {
                             <Button className="w-full space-x-2">
                                 Donate
                                 <IndianRupee size={20} />
-                                {fundraiser.totalAmount - fundraiser.raised}
+                                {fundraiser.amount - fundraiser.raised}
                             </Button>
                         </div>
                         <div className="grid place-content-center">

@@ -7,6 +7,9 @@
     .primaryBackground{
         @apply bg-slate-200
     }
+    .cardBg{
+        @apply bg-[#475569]
+    }
 }
 
 

@@ -4,6 +4,7 @@ import HomeDonate from "@/components/created/HomeDonate";
 import { ThreeDCardDemo } from "@/components/created/HomeJoin";
 import Testimonial from "@/components/created/HomeTestimonial";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
     return (
@@ -12,13 +13,14 @@ export default function Home() {
                 <Hero />
             </div>
             <div className="bg-slate-200">
-                <div 
+                <div
                     className="bg-white 
                         contribute-S md:contribute-M lg:contribute-L 
                         ml-[5em] lg:ml-[20em]
                     ">
                     <DonateSection />
                 </div>
+
             </div>
             <div className="p-4 bg-slate-200 curvedT-R-S md:curvedT-R-M lg:curvedT-R-L">
                 <JoinSection />
@@ -71,15 +73,20 @@ function DonateSection() {
         <div className="
             -ml-[5em] lg:-ml-[20em]
         ">
-            <div className="grid overflow-hidden max-w-full py-4 p-2 gap-2 md:gap-4">
+            <div className="grid max-w-full py-4 p-2 gap-2 md:gap-4 relative ">
                 <div className="grid place-content-center gap-1">
                     <p className="SectionTitle">
                         <Link to="">Contribute Now</Link>
                     </p>
                     <p className="w-fit place-self-center">Help people Directly !!</p>
                 </div>
-                <div className="p-4">
+                <div className="max-h-screen overflow-hidden">
                     <HomeDonate />
+                </div>
+                <div className="absolute bottom-0 w-full grid place-content-center p-2 backdrop-blur-md border-b-black">
+                    <Link to={"/fundraisers"}>
+                        <Button className="max-w-svw Rborder p-2 px-10">View All Fundraisers</Button>
+                    </Link>
                 </div>
             </div>
         </div>

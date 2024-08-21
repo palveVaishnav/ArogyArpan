@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, CircleX } from "lucide-react";
-
+import { userType } from "@palve_vaishnav/arogyarpan";
 const DonorHistory = [
     {
         id: 1,
@@ -45,12 +45,24 @@ const DonorHistory = [
     }
 ];
 
+// interface transaction {
+//     id: number,
+//     title: string,
+//     timeStamp: Date,
+//     tAmount: number,
+//     transaction: boolean,
+//     status: boolean,
+// }
 
-
-
-function DonorTransaction() {
+function DonorTransaction({ user }: { user: userType }) {
+    if (user.transactions) {
+        return <h1>Data Avaliable</h1>
+    }
+    
+    {/* Using Dummy Data for Now */ }
     return (
         <div className="grid gap-4 lg:gap-8 lg:grid-cols-2 md:place-content-center w-full p-2 md:p-4 lg:px-36">
+            <h2>Dummy Data</h2>
             {DonorHistory.map((t) => (
                 <div key={t.id} className="w-full border p-2 border-[#333] rounded-lg shadow-sm hover:shadow-lg cursor-pointer">
                     <div className="flex w-full justify-between gap-2">
@@ -73,7 +85,7 @@ function DonorTransaction() {
                                     <Button>
                                         Funds Collected
                                     </Button>
-                               
+
                                     :
                                     <button className="relative inline-flex p-1 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 overflow-hidden rounded-md">
                                         <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#F57905_0%,#F5BA05_50%,#F57905_100%)]" />

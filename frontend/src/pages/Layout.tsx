@@ -6,7 +6,7 @@ const Layout = () => {
   return (
     <div className="">
       <NavBar />
-      <div className="min-h-[70vh]">
+      <div className="min-h-[70vh] scroll-smooth">
         <Outlet />
       </div>
       <Footer />

@@ -23,13 +23,6 @@ function Fundraisers() {
 
             <div className="p-4 mt-30 relative z-9">
                 <HomeDonate />
-                <HomeDonate />
-                <HomeDonate />
-                <HomeDonate />
-                <HomeDonate />
-                <HomeDonate />
-                <HomeDonate />
-                <HomeDonate />
             </div>
         </div>
     )

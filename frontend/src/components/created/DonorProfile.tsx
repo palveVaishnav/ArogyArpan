@@ -1,13 +1,25 @@
 import { Button } from "@/components/ui/button";
+import { userType } from "@palve_vaishnav/arogyarpan";
 import { AwardIcon, BadgeIndianRupee, HandHeart } from "lucide-react";
+import { useEffect, useState } from "react";
 
 
-function DonorProfile() {
+function DonorProfile({ user }: { user: userType }) {
+    const [TotalAmount, setTotalAmount] = useState(0);
+    const [Grants, setGrants] = useState(0)
+    useEffect(() => {
+        if (user.transactions) {
+            user.transactions.map((t) => {
+                setGrants((g) => g += 1)
+                setTotalAmount((p) => p += t.amount);
+            })
+        }
+    })
     return (
         <div>
             <div className="grid grid-cols-1 md:grid-cols-2 mx-10 md:p-10 place-content-center">
                 <div className="p-4 w-full grid place-content-center">
-                    <img src="https://picsum.photos/204" className="rounded-[4em] Bborder shadow-xl md:shadow-3xl" />
+                    <img src={user.profileImg} className="rounded-full Bborder shadow-xl md:shadow-3xl max-h-[20vh]" />
                 </div>
 
                 <div className="border rounded-md md:rounded-lg shadow-sm p-2">
@@ -16,20 +28,21 @@ function DonorProfile() {
                         {/* name */}
                         <div className="flex items-center gap-2">
                             <div className="font-semibold md:text-xl">
-                                {"John Deo"}
+                                {user.name}
                             </div>
                             <Button variant={'outline'} >Edit Profile</Button>
                         </div>
                         {/* username */}
                         <div>
                             <div className="font-light">
-                                {"@johndeo"}
+                                {/* Will change it */}
+                                {"@" + user.name + user.id}
                             </div>
                         </div>
                         {/* about/ bio */}
                         <div className="p-3 w-full">
                             <div className="font-normal md:w-2/5">
-                                {"Tell us more about you Tell us more about youTell us more about youTell us more about you"}
+                                {user.bio || <Button variant={'ghost'}>Add Bio</Button>}
                             </div>
                         </div>
                     </div>
@@ -38,7 +51,11 @@ function DonorProfile() {
                             <span className='absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#ff7400_0%,#e8a217_50%,#efb110_100%)]' />
                             <span className="inline-flex h-full w-full cursor-pointer items-center justify-center px-3 py-1 text-sm font-medium backdrop-blur-2xl">
                                 <AwardIcon size={15} strokeWidth={2} className="icons" />
-                                <p>Patron</p>
+                                {user.patron ?
+                                    <p>Patron</p>
+                                    :
+                                    <p>Become Patron</p>
+                                }
                             </span>
                         </div>
 
@@ -62,7 +79,7 @@ function DonorProfile() {
                             <BadgeIndianRupee size={15} strokeWidth={2} className="icons" />
                         </div>
                         <div className="grid place-content-center">
-                            {'2,00,000'}
+                            {TotalAmount}
                         </div>
                         <div className="grid place-content-center text-sm md:text-lg">
                             Donated
@@ -74,7 +91,7 @@ function DonorProfile() {
                             <HandHeart size={15} strokeWidth={2} className="icons" />
                         </div>
                         <div className="grid place-content-center">
-                            {'25+'}
+                            {Grants}
                         </div>
                         <div className="grid place-content-center text-sm md:text-lg">
                             Grants

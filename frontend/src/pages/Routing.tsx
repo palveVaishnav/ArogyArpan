@@ -4,22 +4,28 @@ import Layout from "@/pages/Layout";
 import Fundraisers from './Fundraisers';
 import Fundraiser from './Fundraiser';
 import About from './About';
-import Doctor from './Doctor';
-import Donor from './Donor';
+// import Doctor from './Doctor';
+// import Donor from './Donor'; 
+import Signup from './Signup';
+import Signin from './Signin';
+import { CreateFundraiser } from './CreateFundraisers';
+import { Profile } from './Profile';
 
 export function Routing() {
     return (
         <div>
             <BrowserRouter>
                 <Routes>
+                    <Route path='/Signin' element={<Signin />} />
+                    <Route path='/Signup' element={<Signup />} />
                     <Route path='/' element={<Layout />}>
                         <Route index element={<Home />} />
-                        <Route path='Home' element={<Home />} /> 
-                        <Route path='Fundraisers'element={<Fundraisers />} / >
-                        <Route path='Fundraiser'element={<Fundraiser />} / >
-                        <Route path='About'element={<About />} / >
-                        <Route path='Doctor'element={<Doctor/>} / >
-                        <Route path='Donor'element={<Donor/>} / >
+                        <Route path='Home' element={<Home />} />
+                        <Route path='Fundraisers' element={<Fundraisers />} />
+                        <Route path='Fundraiser/:id' element={<Fundraiser />} />
+                        <Route path='About' element={<About />} />
+                        <Route path='createfundraiser' element={<CreateFundraiser />} />
+                        <Route path='profile' element={<Profile />} />
                     </Route>
                 </Routes>
             </BrowserRouter>
