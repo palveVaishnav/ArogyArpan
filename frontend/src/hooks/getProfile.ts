@@ -3,10 +3,10 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 
 export function useProfile() {
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState()
     useEffect(() => {
         const token = localStorage.getItem("token");
-        axios.get(`${import.meta.env.VITE_BACKEND_URL}/${localStorage.getItem('type')}`, {
+        axios.get(`${import.meta.env.VITE_BACKEND_URL}/${localStorage.getItem('type') === 'doctor' ? 'doctor' : 'profile'}`, {
             headers: {
                 Authorization: token
             }
@@ -20,4 +20,3 @@ export function useProfile() {
     }, [])
     return user;
 }
-

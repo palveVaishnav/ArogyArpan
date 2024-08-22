@@ -544,3 +544,32 @@ export default app
 
 // Not to push on github
 // env
+
+
+app.get('/profiles', async (c) => {
+  const prisma = new PrismaClient({
+    datasourceUrl: c.env.DATABASE_URL,
+  }).$extends(withAccelerate())
+  try {
+    const user = await prisma.user.findMany()
+    return c.json(user);
+  } catch (e) {
+    c.status(401)
+    console.log(e)
+    return c.text("No user Found ")
+  }
+})
+
+app.get('/doctors', async (c) => {
+  const prisma = new PrismaClient({
+    datasourceUrl: c.env.DATABASE_URL,
+  }).$extends(withAccelerate())
+  try {
+    const doctor = await prisma.doctor.findMany()
+    return c.json(doctor);
+  } catch (e) {
+    c.status(401)
+    console.log(e)
+    return c.text("No user Found ")
+  }
+})

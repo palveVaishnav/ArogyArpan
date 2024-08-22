@@ -1,6 +1,3 @@
-// import { BACKEND_URL } from "@/config"
-// import { ValidationTable } from "@palve_vaishnav/arogyarpan"
-
 import axios from "axios"
 import { useEffect, useState } from "react"
 
@@ -30,7 +27,7 @@ export function useFundraisersById({ id }: { id: number }) {
             .catch((e) => {
                 console.error(e)
             })
-    }, [])
+    }, [id])
 
     return Fundraiser;
 }

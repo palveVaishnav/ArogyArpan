@@ -1,14 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-// import { BACKEND_URL } from "@/config";
 import { useProfile } from "@/hooks/getProfile";
 import { isLogin } from "@/hooks/getUser";
-import { CreateFdInput } from "@palve_vaishnav/arogyarpan";
+import { CreateFdInput, userType } from "@palve_vaishnav/arogyarpan";
 import axios from "axios";
 import { FileIcon, TimerIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 export function CreateFundraiser() {
     const navigate = useNavigate();
 
@@ -16,9 +14,22 @@ export function CreateFundraiser() {
         if (!localStorage.getItem("token") || !isLogin) {
             navigate("/signin");
         }
-    }, []);
 
-    const user = useProfile();
+    });
+    const user: userType = useProfile() ?? {
+        name: "",
+        email: "",
+        password: "",
+        bio: "",
+        patron: false,
+        id: 0,
+        createdAt: new Date(),
+        stayAnonymous: false,
+        profileImg: "",
+        fundraiser: [],
+        transactions: []
+    };
+
 
     const [newFundraiser, setnewFundraiser] = useState<CreateFdInput>({
         authorId: 0,
@@ -28,7 +39,7 @@ export function CreateFundraiser() {
         age: 0,
         location: "",
         hospital: "",
-        disgnose: "", // corrected the typo here
+        disgnose: "",
         story: "",
         amount: 0,
         due: "",
@@ -45,9 +56,9 @@ export function CreateFundraiser() {
     const sendRequest = () => {
         setnewFundraiser(prevState => ({
             ...prevState,
-            due: new Date(newFundraiser.due).toISOString(), // Convert the due date to ISO 8601 format
+            due: new Date(newFundraiser.due).toISOString(),
         }));
-        axios.post(`${import.meta.env.VITE_BACKEND_URL}/fundaiser`, newFundraiser)
+        axios.post(`${import.meta.env.VITE_BACKEND_URL}/fundraiser`, newFundraiser)
             .then((res) => {
                 const id = res.data;
                 navigate(`/Fundraiser/${id}`);
@@ -57,7 +68,6 @@ export function CreateFundraiser() {
                 // Add error handling or user feedback here if needed
             });
     };
-
     return (
         <div className="grid w-full gap-4 bg-white">
             <div className="text-xl w-full grid place-content-center md:place-content-start md:ml-5 font-bold md:text-3xl mt-5 p-4">

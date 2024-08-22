@@ -6,9 +6,21 @@ import { userType } from "@palve_vaishnav/arogyarpan";
 import { useNavigate } from "react-router-dom";
 
 export function Profile() {
-    const user: userType = useProfile();
+    const user: userType = useProfile() ?? {
+        name: "",
+        email: "",
+        password: "",
+        bio: "",
+        patron: false,
+        id: 0,
+        createdAt: new Date(),
+        stayAnonymous: false,
+        profileImg: "",
+        fundraiser: [],
+        transactions: []
+    };
     const navigate = useNavigate();
-    if(!isLogin){
+    if (!isLogin) {
         navigate('/signin')
     }
     if (!user) {

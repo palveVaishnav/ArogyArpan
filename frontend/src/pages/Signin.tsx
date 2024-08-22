@@ -50,6 +50,7 @@ function SigninCard() {
             const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/signin`, signinInputReq);
             const jwt = response.data;
             localStorage.setItem("token", jwt)
+            localStorage.setItem("type", signinInputReq.userType)
             setErrorText("");
             navigate("/home");
 

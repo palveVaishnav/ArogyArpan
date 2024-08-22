@@ -2,17 +2,36 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import { useFundraisersById } from "@/hooks/getFundraiser";
-import { FundraiserType } from "@palve_vaishnav/arogyarpan";
+// import { FundraiserType } from "@palve_vaishnav/arogyarpan";
 import { FileIcon, Files, IndianRupee, Pen, QrCode, VerifiedIcon } from "lucide-react";
 import { useParams } from "react-router-dom";
 
 function Fundraiser() {
-    const { id } = useParams();
-    const fundraiser: FundraiserType = useFundraisersById({ id: Number(id) });
-    if (!fundraiser) {
-        return null;
-    }
 
+    const { id } = useParams();
+    const fundraiser = useFundraisersById({ id: Number(id) }) ?? {
+        id: 0,
+        authorId: 0,
+        authorName: "",
+        createdAt: "",
+        title: "",
+        patientName: "",
+        age: 0,
+        location: "",
+        hospital: "",
+        disgnose: "",
+        story: "",
+        amount: 0,
+        raised: 0,
+        due: "",
+        verified: false,
+        doctorId: 0,
+        doctorName: "",
+    };
+
+    if (!fundraiser) {
+        return <div>Loading...</div>; // You can customize this as needed
+    }
     return (
         <div className="grid w-full gap-4 bg-white">
 
