@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { BACKEND_URL } from "@/config";
+// import { BACKEND_URL } from "@/config";
 import { useProfile } from "@/hooks/getProfile";
 import { isLogin } from "@/hooks/getUser";
 import { CreateFdInput } from "@palve_vaishnav/arogyarpan";
@@ -42,12 +42,12 @@ export function CreateFundraiser() {
         }));
     }, [user]);
 
-    const sendRequest = () => {        
+    const sendRequest = () => {
         setnewFundraiser(prevState => ({
             ...prevState,
             due: new Date(newFundraiser.due).toISOString(), // Convert the due date to ISO 8601 format
         }));
-        axios.post(`${BACKEND_URL}/fundaiser`, newFundraiser)
+        axios.post(`${import.meta.env.VITE_BACKEND_URL}/fundaiser`, newFundraiser)
             .then((res) => {
                 const id = res.data;
                 navigate(`/Fundraiser/${id}`);

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { SigninInput } from "@palve_vaishnav/arogyarpan";
 import axios from "axios"
-import { BACKEND_URL } from "@/config";
+// import { BACKEND_URL } from "@/config";
 import { Button } from "@/components/ui/button";
 import { WebLogo } from "./Navigation";
 
@@ -20,7 +20,6 @@ export default function Signin() {
                 >Go back to Home</Button>
             </div>
             <div className="flex justify-center items-center flex-col pt-20 h-[100vh] rounded-r-[6em] overflow-hidden primaryBackground shadow-2xl">
-                
                 <SigninCard />
             </div>
             <div className="h-[100vh] overflow-hidden ">
@@ -40,6 +39,7 @@ export default function Signin() {
 
 function SigninCard() {
     const [signinInputReq, setSigninInputReq] = useState<SigninInput>({
+        userType: "user",
         email: "",
         password: ""
     });
@@ -47,7 +47,7 @@ function SigninCard() {
     const [Erroetext, setErrorText] = useState("");
     async function sendRequest() {
         try {
-            const response = await axios.post(`${BACKEND_URL}/signin`, signinInputReq);
+            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/signin`, signinInputReq);
             const jwt = response.data;
             localStorage.setItem("token", jwt)
             setErrorText("");
@@ -61,9 +61,9 @@ function SigninCard() {
     }
     return (
         <div className="border gap-2 p-4 rounded-xl bg-white shadow-xl">
-                <div>
-                    <WebLogo />
-                </div>
+            <div>
+                <WebLogo />
+            </div>
             <div className="gap-2 p-4 ">
                 <div className="text-2xl font-bold">Welcome Back</div>
 
@@ -96,6 +96,42 @@ function SigninCard() {
                             })
                         }}
                     />
+                </div>
+                <div className="p-2">
+                    <label className="text-lg font-semibold">Are you a Doctor ?</label>
+                    <div className="flex gap-4">
+                        <div className="flex items-center">
+                            <input
+                                type="radio"
+                                id="user"
+                                // defaultChecked={true}
+                                checked={signinInputReq.userType === "user"}
+                                onChange={() => {
+                                    setSigninInputReq({
+                                        ...signinInputReq,
+                                        userType: signinInputReq.userType === "user" ? "" : "user",
+                                    });
+                                }}
+                                className="mr-2"
+                            />
+                            <label htmlFor="user" className="text-md">no</label>
+                        </div>
+                        <div className="flex items-center">
+                            <input
+                                type="radio"
+                                id="doctor"
+                                checked={signinInputReq.userType === "doctor"}
+                                onChange={() => {
+                                    setSigninInputReq({
+                                        ...signinInputReq,
+                                        userType: signinInputReq.userType === "doctor" ? "" : "doctor",
+                                    });
+                                }}
+                                className="mr-2"
+                            />
+                            <label htmlFor="doctor" className="text-md">yes</label>
+                        </div>
+                    </div>
                 </div>
                 <p className="text-sm text-red-500 p-2">{Erroetext}</p>
                 <Button

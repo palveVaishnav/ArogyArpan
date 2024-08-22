@@ -43,8 +43,8 @@ app.post('/signup', async (c) => {
         }
       })
       const jwt = await sign({
-        id:doctor.id
-      },c.env.JWT_SECRET)
+        id: doctor.id
+      }, c.env.JWT_SECRET)
       return c.text(jwt);
     } catch (e) {
       c.status(400)
@@ -90,12 +90,24 @@ app.post('/signin', async (c) => {
     return c.text("Invalid Inputs !!")
   }
   try {
-    const user = await prisma.user.findFirst({
-      where: {
-        email: body.email,
-        password: body.password
-      }
-    })
+    let user;
+    if (body.userType === "doctor") {
+      user = await prisma.doctor.findFirst({
+        where: {
+          email: body.email,
+          password: body.password
+        }
+      })
+    } else {
+      user = await prisma.user.findFirst({
+        where: {
+          email: body.email,
+          password: body.password
+        }
+      })
+
+    }
+
     if (!user) {
       c.status(403)
       return c.text('No such User Exists!! Check email and password')
@@ -112,45 +124,36 @@ app.post('/signin', async (c) => {
   }
 })
 
-app.get('/profiles', async (c) => {
-  const prisma = new PrismaClient({
-    datasourceUrl: c.env.DATABASE_URL,
-  }).$extends(withAccelerate())
-  try {
-    const user = await prisma.user.findMany()
-    return c.json(user);
-  } catch (e) {
-    c.status(401)
-    console.log(e)
-    return c.text("No user Found ")
-  }
-})
-
-app.get('/doctors', async (c) => {
-  const prisma = new PrismaClient({
-    datasourceUrl: c.env.DATABASE_URL,
-  }).$extends(withAccelerate())
-  try {
-    const doctor = await prisma.doctor.findMany()
-    return c.json(doctor);
-  } catch (e) {
-    c.status(401)
-    console.log(e)
-    return c.text("No user Found ")
-  }
-})
-
 app.get('/profile', async (c) => {
   const prisma = new PrismaClient({
     datasourceUrl: c.env.DATABASE_URL,
   }).$extends(withAccelerate())
   const token = c.req.header('Authorization') || ""
   const { id } = await verify(token, c.env.JWT_SECRET);
-  if (!id) {
-    redirect('/login');
-  }
   try {
     const user = await prisma.user.findFirst({
+      where: {
+        id: Number(id),
+      }
+    })
+    if (!user) {
+      return c.json({ Error: "User Does not Exist !!" })
+    }
+    return c.json(user);
+  } catch (e) {
+    c.status(400)
+    return c.json({ msg: "user Not Found", error: e })
+  }
+})
+
+app.get('/doctor', async (c) => {
+  const prisma = new PrismaClient({
+    datasourceUrl: c.env.DATABASE_URL,
+  }).$extends(withAccelerate())
+  const token = c.req.header('Authorization') || ""
+  const { id } = await verify(token, c.env.JWT_SECRET);
+  try {
+    const user = await prisma.doctor.findFirst({
       where: {
         id: Number(id),
       }
@@ -539,3 +542,5 @@ app.get("/userid", async (c) => {
 
 export default app
 
+// Not to push on github
+// env

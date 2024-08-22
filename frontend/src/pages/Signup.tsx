@@ -3,11 +3,12 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { SignupInputDoctor } from "@palve_vaishnav/arogyarpan";
 import axios from "axios"
-import { BACKEND_URL } from "@/config";
+// import { BACKEND_URL } from "@/config";
 import { Button } from "@/components/ui/button";
 import { WebLogo } from "./Navigation";
 
 export default function Signup() {
+    // const setImage
     const navigate = useNavigate()
     return (
         <div className="w-full grid md:grid-cols-2 place-content-center relative bg-[#85c1c96e]">
@@ -53,7 +54,7 @@ function SignupComp() {
     const [inputError, setInputError] = useState(false)
     async function sendRequest() {
         try {
-            const response = await axios.post(`${BACKEND_URL}/signup`, SignupInputs);
+            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/signup`, SignupInputs);
             const jwt = response.data;
             localStorage.setItem("token", jwt)
             localStorage.setItem("type", SignupInputs.userType)

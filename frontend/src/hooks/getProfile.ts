@@ -1,4 +1,4 @@
-import { BACKEND_URL } from "@/config"
+// import { BACKEND_URL } from "@/config"
 import axios from "axios"
 import { useEffect, useState } from "react"
 
@@ -6,7 +6,7 @@ export function useProfile() {
     const [user, setUser] = useState({})
     useEffect(() => {
         const token = localStorage.getItem("token");
-        axios.get(`${BACKEND_URL}/profile`, {
+        axios.get(`${import.meta.env.VITE_BACKEND_URL}/${localStorage.getItem('type')}`, {
             headers: {
                 Authorization: token
             }
@@ -17,7 +17,7 @@ export function useProfile() {
             .catch((e) => {
                 return e
             })
-    },[])
+    }, [])
     return user;
 }
 

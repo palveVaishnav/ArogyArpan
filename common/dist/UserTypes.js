@@ -28,6 +28,7 @@ exports.signupInputUser = zod_1.default.object({
 });
 // similar for both 
 exports.signinInput = zod_1.default.object({
+    userType: zod_1.default.string(),
     email: zod_1.default.string().email(),
     password: zod_1.default.string().min(6),
     // name : z.string() // will add username later

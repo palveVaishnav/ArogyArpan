@@ -188,12 +188,15 @@ export declare const signupInputUser: z.ZodObject<{
     password: string;
 }>;
 export declare const signinInput: z.ZodObject<{
+    userType: z.ZodString;
     email: z.ZodString;
     password: z.ZodString;
 }, "strip", z.ZodTypeAny, {
+    userType: string;
     email: string;
     password: string;
 }, {
+    userType: string;
     email: string;
     password: string;
 }>;

@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import { useFundraisersById } from "@/hooks/getFundraiser";
 import { FundraiserType } from "@palve_vaishnav/arogyarpan";
-import { FileIcon, IndianRupee, Pen, QrCode, VerifiedIcon } from "lucide-react";
+import { FileIcon, Files, IndianRupee, Pen, QrCode, VerifiedIcon } from "lucide-react";
 import { useParams } from "react-router-dom";
 
 function Fundraiser() {
@@ -12,6 +12,7 @@ function Fundraiser() {
     if (!fundraiser) {
         return null;
     }
+
     return (
         <div className="grid w-full gap-4 bg-white">
 
@@ -57,18 +58,7 @@ function Fundraiser() {
 
                         {/* Verified Tag */}
                         <div className="grid md:flex md:gap-2">
-                            <div className="border p-2 my-2 gap-2 bg-blue-100 rounded-md w-fit shadow-md">
-                                {fundraiser.verified ?
-                                    <div className="flex text-lg gap-2">
-                                        Verrified By : {fundraiser.doctorName}
-                                        <VerifiedIcon className="text-blue-500" />
-                                    </div>
-                                    :
-                                    <div>
-                                        Not Verified | Check Docks :
-                                    </div>
-                                }
-                            </div>
+
                             <div className="flex items-center border p-2 my-2 gap-2 bg-blue-100 rounded-md w-fit shadow-md">
                                 <div>
                                     <FileIcon />
@@ -76,6 +66,22 @@ function Fundraiser() {
                                 <div className="flex text-md gap-2">
                                     <p>Documents</p>
                                 </div>
+                            </div>
+                            <div className="border p-2 my-2 gap-2 bg-blue-100 rounded-md w-fit shadow-md">
+                                {fundraiser.verified ?
+                                    <div className="flex text-lg gap-2">
+                                        Verrified By : {fundraiser.doctorName}
+                                        <VerifiedIcon className="text-blue-500" />
+                                    </div>
+                                    :
+                                    <div className="border flex">
+                                        <Files />
+                                        {'Validate ?'}
+                                        <Input
+                                            type={'checkbox'}
+                                        />
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>

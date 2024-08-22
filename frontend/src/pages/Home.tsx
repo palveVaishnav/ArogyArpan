@@ -8,13 +8,14 @@ import { Button } from "@/components/ui/button";
 
 export default function Home() {
     return (
-        <div className="grid bg-white">
+        <div className="grid bg-slate-50">
             <div className="bg-slate-200 p-6 curvedB-R-S md:curvedB-R-M lg:curvedB-R-L">
                 <Hero />
             </div>
             <div className="bg-slate-200">
                 <div
-                    className="bg-white 
+                    className="
+                        bg-slate-50
                         contribute-S md:contribute-M lg:contribute-L 
                         ml-[5em] lg:ml-[20em]
                     ">
@@ -59,11 +60,13 @@ function JoinSection() {
                 <p className="w-fit place-self-center"> Let's Help Humanity </p>
             </div>
             {/* Card */}
-            <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 place-content-center">
-                <ThreeDCardDemo who={"doctor"} />
-                <ThreeDCardDemo who={"seeker"} />
-                <ThreeDCardDemo who={"donor"} />
-            </div>
+            {/* <div className="grid place-content-center"> */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-10 p-20">
+                    <ThreeDCardDemo who={"doctor"} />
+                    <ThreeDCardDemo who={"seeker"} />
+                    <ThreeDCardDemo who={"donor"} />
+                </div>
+            {/* </div> */}
         </div>
     )
 }
@@ -80,7 +83,7 @@ function DonateSection() {
                     </p>
                     <p className="w-fit place-self-center">Help people Directly !!</p>
                 </div>
-                <div className="max-h-screen overflow-hidden">
+                <div className="max-h-[160vh] overflow-hidden">
                     <HomeDonate />
                 </div>
                 <div className="absolute bottom-0 w-full grid place-content-center p-2 backdrop-blur-md border-b-black">
