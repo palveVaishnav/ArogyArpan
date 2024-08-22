@@ -230,7 +230,7 @@ app.patch('/profile/:id', async (c) => {
 })
 
 // fundraiser Routes 
-app.post('/fundaiser', async (c) => {
+app.post('/fundraiser', async (c) => {
   const prisma = new PrismaClient({
     datasourceUrl: c.env.DATABASE_URL
   }).$extends(withAccelerate());
@@ -294,7 +294,7 @@ app.post('/fundaiser', async (c) => {
 
 
 /*
-app.post('/fundaiser', async (c) => {
+app.post('/fundraiser', async (c) => {
   const prisma = new PrismaClient({
     datasourceUrl: c.env.DATABASE_URL
   }).$extends(withAccelerate());
@@ -348,7 +348,7 @@ app.post('/fundaiser', async (c) => {
 */
 
 // add pagination 
-app.get('/fundaiser', async (c) => {
+app.get('/fundraiser', async (c) => {
   const prisma = new PrismaClient({
     datasourceUrl: c.env.DATABASE_URL
   }).$extends(withAccelerate());
@@ -360,7 +360,7 @@ app.get('/fundaiser', async (c) => {
   }
 })
 
-app.get('/fundaiser/:id', async (c) => {
+app.get('/fundraiser/:id', async (c) => {
   const prisma = new PrismaClient({
     datasourceUrl: c.env.DATABASE_URL
   }).$extends(withAccelerate());
@@ -377,7 +377,7 @@ app.get('/fundaiser/:id', async (c) => {
   }
 })
 
-app.patch('/fundaiser/:id', async (c) => {
+app.patch('/fundraiser/:id', async (c) => {
   const prisma = new PrismaClient({
     datasourceUrl: c.env.DATABASE_URL
   }).$extends(withAccelerate());
@@ -429,7 +429,7 @@ app.patch('/fundaiser/:id', async (c) => {
 })
 
 // Not Implementing just yet!! don't have any payment gateway available 
-app.get('/fundaiser/:id/donate', (c) => {
+app.get('/fundraiser/:id/donate', (c) => {
   return c.text('Payment Gateway')
 })
 // For Doctors 

@@ -3,9 +3,9 @@ import { useEffect, useState } from "react"
 
 
 export const useFundraisers = () => {
-    const [Fundaisers, setFundraisers] = useState([])
+    const [fundraisers, setFundraisers] = useState([])
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_BACKEND_URL}/fundaiser`)
+        axios.get(`${import.meta.env.VITE_BACKEND_URL}/fundraiser`)
             .then((res) => {
                 setFundraisers(res.data)
             })
@@ -14,13 +14,13 @@ export const useFundraisers = () => {
             })
     }, [])
 
-    return Fundaisers;
+    return fundraisers;
 }
 
 export function useFundraisersById({ id }: { id: number }) {
     const [Fundraiser, setFundraiser] = useState(null)
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_BACKEND_URL}/fundaiser/${id}`)
+        axios.get(`${import.meta.env.VITE_BACKEND_URL}/fundraiser/${id}`)
             .then((res) => {
                 setFundraiser(res.data)
             })
