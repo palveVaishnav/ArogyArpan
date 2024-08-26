@@ -13,7 +13,7 @@ export const isLogin = () => {
                 return res.data.id
             })
             .catch(() => {
-                return null
+                return false
             })
     }
 }

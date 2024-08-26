@@ -10,6 +10,7 @@ import Signup from './Signup';
 import Signin from './Signin';
 import { CreateFundraiser } from './CreateFundraisers';
 import { Profile } from './Profile';
+import { Notion } from './Notion';
 
 export function Routing() {
     return (
@@ -24,6 +25,7 @@ export function Routing() {
                         <Route path='Fundraisers' element={<Fundraisers />} />
                         <Route path='Fundraiser/:id' element={<Fundraiser />} />
                         <Route path='About' element={<About />} />
+                        <Route path='Notion' element={<Notion />} />
                         <Route path='createfundraiser' element={<CreateFundraiser />} />
                         <Route path='profile' element={<Profile />} />
                     </Route>

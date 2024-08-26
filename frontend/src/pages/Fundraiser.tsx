@@ -2,13 +2,22 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import { useFundraisersById } from "@/hooks/getFundraiser";
+import { isDoctor } from "@/hooks/getUser";
+import { validate, ValidateFD } from "@/hooks/ValidateFD";
 // import { FundraiserType } from "@palve_vaishnav/arogyarpan";
-import { FileIcon, Files, IndianRupee, Pen, QrCode, VerifiedIcon } from "lucide-react";
+import { Files, IndianRupee, Pen, QrCode, VerifiedIcon } from "lucide-react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 function Fundraiser() {
-
     const { id } = useParams();
+    const [Validation, setValidation] = useState<validate>({
+        fundraiserId: Number(id),
+        status: false,
+        message: "",
+    });
+
+
     const fundraiser = useFundraisersById({ id: Number(id) }) ?? {
         id: 0,
         authorId: 0,
@@ -32,6 +41,10 @@ function Fundraiser() {
     if (!fundraiser) {
         return <div>Loading...</div>; // You can customize this as needed
     }
+
+    // const validate = ValidateFD();
+
+
     return (
         <div className="grid w-full gap-4 bg-white">
 
@@ -51,61 +64,93 @@ function Fundraiser() {
                     {/* Autohor */}
 
 
-                    <div className="p-2 h-fit md:font-medium md:text-xl">
-                        <div>
-                            Patient Name : {fundraiser.patientName}
+                    <div className="p-2 h-fit md:font-medium md:text-xl" >
+                        <div className="p-2">
+                            <div>
+                                Patient Name : {fundraiser.patientName}
+                            </div>
+                            <div>
+                                Age : {fundraiser.age}
+                            </div>
+                            <div>
+                                Location : {fundraiser.location}
+                            </div>
+                            <div>
+                                Hospital : {fundraiser.hospital}
+                            </div>
+                            <div>
+                                Diagnosed : {fundraiser.disgnose}
+                            </div>
+                            <div>
+                                Need Money By : {fundraiser.due.slice(0, 10)}
+                            </div>
                         </div>
-                        <div>
-                            Age : {fundraiser.age}
-                        </div>
-                        <div>
-                            Location : {fundraiser.location}
-                        </div>
-                        <div>
-                            Hospital : {fundraiser.hospital}
-                        </div>
-                        <div>
-                            Diagnosed : {fundraiser.disgnose}
-                        </div>
-                        {/* <div>
-                            Level : {fundraiser.}
-                        </div> */}
-                        <div>
-                            {/* Need Money By : {fundraiser.due.getDate()} */}
-                        </div>
-
 
                         {/* Verified Tag */}
-                        <div className="grid md:flex md:gap-2">
-
+                        <div className="grid md:flex md:gap-2 items-center">
                             <div className="flex items-center border p-2 my-2 gap-2 bg-blue-100 rounded-md w-fit shadow-md">
                                 <div>
-                                    <FileIcon />
+                                    <Files />
                                 </div>
                                 <div className="flex text-md gap-2">
-                                    <p>Documents</p>
+                                    <p>View Documents</p>
                                 </div>
                             </div>
-                            <div className="border p-2 my-2 gap-2 bg-blue-100 rounded-md w-fit shadow-md">
+                            <div className="grid">
                                 {fundraiser.verified ?
-                                    <div className="flex text-lg gap-2">
+                                    <div className="flex text-lg gap-2 bg-blue-100 shadow-md border p-2 my-2 rounded-md w-fit ">
                                         Verrified By : {fundraiser.doctorName}
                                         <VerifiedIcon className="text-blue-500" />
                                     </div>
                                     :
-                                    <div className="border flex">
-                                        <Files />
-                                        {'Validate ?'}
-                                        <Input
-                                            type={'checkbox'}
-                                        />
-                                    </div>
+                                    <>
+                                        {/* Bad idea to use status, this will always pass the true value,
+                                        reason : keeing it until i change the ui for validate button to a popup card 
+                                     */}
+                                        {isDoctor() &&
+                                            <div
+                                                onClick={() =>
+                                                    setValidation({
+                                                        ...Validation,
+                                                        status: !Validation.status,
+                                                    })
+                                                }
+                                                className="p-2 my-2 border rounded-md shadow-md bg-red-100 cursor-pointer"
+                                            >
+                                                Validate ?
+                                            </div>
+                                        }
+                                    </>
                                 }
                             </div>
                         </div>
+                        <div>
+                            {Validation.status &&
+                                <div className="flex w-full max-w-sm items-center space-x-2  mt-2 ">
+                                    <textarea
+                                        className="p-2 rounded-lg"
+                                        placeholder={"Message"}
+                                        autoFocus
+                                        onChange={(e) => {
+                                            setValidation({
+                                                ...Validation,
+                                                message: e.target.value
+                                            })
+                                        }}
+                                    />
+                                    <Button
+                                        type="submit"
+                                        onClick={() => ValidateFD({ data: Validation })}
+                                    >Validate
+                                    </Button>
+                                </div>
+                            }
+                        </div>
                     </div>
 
+
                     <div className="grid">
+
                         <div className="border rounded-lg shadow-md grid place-content-center w-fit">
                             <div className="p-4 md:px-8 grid gap-2">
                                 <div className="md:font-medium flex gap-2 items-center">
@@ -186,8 +231,11 @@ function Fundraiser() {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
+
+
+
 
 export default Fundraiser;

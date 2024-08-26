@@ -35,10 +35,10 @@ function About() {
                     <div className="grid m-10">
                         <div className="grid place-content-center grid-cols-3 gap-4 md:m-20 lg:px-[4em]">
                             <div className="overflow-hidden rounded-md shadow-lg hover:-translate-y-1  shadow-orange-300">
-                                <img src={"/images/4.png"}/>
+                                <img src={"/images/4.png"} />
                             </div>
                             <div className="overflow-hidden rounded-md shadow-md hover:-translate-y-1  shadow-violet-300">
-                                <img src={"/images/7.png"}/>
+                                <img src={"/images/7.png"} />
                             </div>
                             <div className="overflow-hidden rounded-md shadow-md hover:-translate-y-1  shadow-green-300">
                                 <img src={"/images/15.png"} />
@@ -104,7 +104,7 @@ function About() {
                     <div className="grid place-content-center w-full p-5">
                         <div className="flex w-full p-5 rounded-xl gap-2 hover:shadow-lg border">
                             <div className="w-[5em] md:w-[6em] lg:w-[8.5rem] h-[5em] md:h-[6em] lg:h-[8.5rem] rounded-xl border overflow-hidden bg-[#c1d9db]">
-                                <img src={"/images/profile3.png"} className="w-full h-full"/>
+                                <img src={"/images/profile3.png"} className="w-full h-full" />
                             </div>
                             <div className=" grid md:p-5 gap-1 md:gap-2">
                                 <div className="text-base font-semibold md:text-xl">

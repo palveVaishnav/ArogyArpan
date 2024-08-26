@@ -70,7 +70,7 @@ model Fundraiser {
   doctor      Doctor?       @relation(fields: [doctorId], references: [id])
   doctorId    Int?
   doctorName  String?
-  img         String       @default("https://picsum.photos/200")
+  img         String        @default("https://picsum.photos/200")
   // donors associated 
   donations   Transaction[]
   Validation  Validation[]
@@ -102,5 +102,4 @@ model Validation {
   createdAt    DateTime   @default(now())
   status       Boolean
   message      String?
-  
 }

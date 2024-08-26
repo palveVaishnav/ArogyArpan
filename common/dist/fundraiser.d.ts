@@ -37,6 +37,7 @@ export declare const createFdInput: z.ZodObject<{
     due: string;
 }>;
 export type CreateFdInput = z.infer<typeof createFdInput>;
+
 export declare const updateFdInput: z.ZodObject<{
     title: z.ZodString;
     patientName: z.ZodString;

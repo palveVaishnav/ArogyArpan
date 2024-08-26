@@ -31,6 +31,11 @@ function NavButtons() {
             >
                 About
             </Button>
+            <Button variant={"outline"}
+                onClick={() => navigate("/Notion")}
+            >
+                Notion
+            </Button>
             <Button
                 onClick={() => navigate("/createFundraiser")}
             >
@@ -46,7 +51,7 @@ function NavButtons() {
     )
 }
 
-const LogOut = () =>{
+const LogOut = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("type");
 }
@@ -79,10 +84,10 @@ export default function NavBar() {
                                 className="rounded-full border overflow-hidden w-12 cursor-pointer"
                                 onClick={() => navigate("/Profile")}
                             >
-                                <img    
+                                <img
                                     className="w-full h-full"
                                     src="https://avatar.iran.liara.run/public"
-                                 />
+                                />
                             </div>
 
                         </>
