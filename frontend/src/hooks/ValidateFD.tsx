@@ -1,6 +1,5 @@
 import axios from "axios";
 // import { useNavigate, redirect } from 'react-router-dom';
-
 export interface validate {
     fundraiserId: number;
     status: boolean;

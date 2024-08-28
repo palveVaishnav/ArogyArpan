@@ -26,15 +26,15 @@ model User {
 }
 
 model Doctor {
-  id           Int      @id @default(autoincrement())
-  createdAt    DateTime @default(now())
-  name         String
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  name      String
   // username  String
-  // doctor Verifcation
-  selfVerified Boolean  @default(false)
 
-  regno          Int      @unique
-  regDate        DateTime
+  // doctor Verifcation
+  selfVerified   Boolean @default(false)
+  regno          String  @unique
+  regDate        String
   qualifications Json?
   StateCouncil   String
 

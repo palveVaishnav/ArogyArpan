@@ -4,6 +4,7 @@ import { withAccelerate } from '@prisma/extension-accelerate'
 import { sign, verify } from 'hono/jwt'
 import { createFdInput, signinInput, signupInputDoctor, signupInputUser, updateDoctorInput, updateFdInput, updateUserInput, validationTable } from '@palve_vaishnav/arogyarpan'
 import { cors } from 'hono/cors'
+import { getDoctorValidations } from './validDoctor'
 
 const app = new Hono<{
   Bindings: {
@@ -24,29 +25,48 @@ app.post('/signup', async (c) => {
   const body = await c.req.json();
 
   if (body.userType == "doctor") {
-    const result = signupInputDoctor.safeParse(body);
-    if (!result.success) {
-      c.status(401);
-      await prisma.$disconnect(); // Ensures Prisma Client disconnects after the request
-      return c.json(result.error.issues)
-    }
+    // const result = signupInputDoctor.safeParse(body);
+    // if (!result.success) {
+    //   c.status(401);
+    //   await prisma.$disconnect(); // Ensures Prisma Client disconnects after the request
+    //   return c.json(result.error.issues)
+    // }
+
     try {
       const doctor = await prisma.doctor.create({
         data: {
-          // userType:body.userType,
           name: body.name,
-          regno: body.regno,
-          regDate: new Date(body.regDate),
+          regno: body.regno.trim(),
+          regDate: body.regDate,
           StateCouncil: body.stateCouncil,
           email: body.email,
           password: body.password,
         }
       })
+
+      const validDoctor = await getDoctorValidations(doctor.regno, doctor.regDate)
+      if (validDoctor) {
+        await prisma.doctor.update({
+          where: {
+            id: doctor.id,
+          },
+          data: {
+            selfVerified: true,
+            qualifications: validDoctor.qualification?.toString(),
+            StateCouncil: validDoctor.stateMedicalCouncil?.toString(),
+          }
+        })
+      } else {
+        c.status(404)
+        return c.json({ message: "Doctor Validation Unsuccessfull !!" })
+      }
+
       const jwt = await sign({
         id: doctor.id
       }, c.env.JWT_SECRET)
+
       await prisma.$disconnect(); // Ensures Prisma Client disconnects after the request
-      return c.text(jwt);
+      return c.json(doctor);
     } catch (e) {
       c.status(400)
       console.error('Error creating doctor:', e);
@@ -519,7 +539,6 @@ app.post('/fundraiser/verify', async (c) => {
       c.status(404);
       return c.text('Error While Adding Entry to Validation Table');
     }
-
     c.status(200);
     return c.json({ success: true });
   } catch (error) {

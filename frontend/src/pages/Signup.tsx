@@ -1,7 +1,7 @@
 // import { useState } from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { SignupInputDoctor } from "@palve_vaishnav/arogyarpan";
+// import { SignupInputDoctor } from "@palve_vaishnav/arogyarpan";
 import axios from "axios"
 // import { BACKEND_URL } from "@/config";
 import { Button } from "@/components/ui/button";
@@ -41,12 +41,12 @@ export default function Signup() {
 
 
 function SignupComp() {
-    const [SignupInputs, setSignupInputs] = useState<SignupInputDoctor>({
+    const [SignupInputs, setSignupInputs] = useState({
         userType: "user",
         name: "",
         email: "",
         password: "",
-        regno: 0,
+        regno: "",
         regDate: "",
         stateCouncil: "",
     });
@@ -134,11 +134,10 @@ function SignupComp() {
                             <input
                                 className="border px-2 py-1 rounded-md"
                                 placeholder={'Reg no'}
-                                type={'number'}
                                 onChange={(e) => {
                                     setSignupInputs({
                                         ...SignupInputs,
-                                        regno: parseInt(e.target.value)
+                                        regno: e.target.value
                                     });
                                 }}
                             />
@@ -150,10 +149,10 @@ function SignupComp() {
                                 placeholder={'reg Date'}
                                 type={'date'}
                                 onChange={(e) => {
+                                    const [year, month, day] = e.target.value.split('-');
                                     setSignupInputs({
                                         ...SignupInputs,
-                                        regDate: e.target.value + "T00:00:00.961Z"
-                                        // "regDate": "2024-08-19T11:13:03.961Z",
+                                        "regDate": `${day}/${month}/${year}`,
                                     })
                                 }}
                             />
